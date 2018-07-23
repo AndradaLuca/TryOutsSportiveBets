@@ -13,7 +13,7 @@ import com.example.marius.sportivebets.model.entity.User;
 public abstract class BetRoomDatabase extends RoomDatabase{
 
     private static BetRoomDatabase connection;
-
+    public abstract UserDao userDao();
     static BetRoomDatabase getConnection(final Context context)
     {
         if(connection== null){
@@ -29,18 +29,8 @@ public abstract class BetRoomDatabase extends RoomDatabase{
     return connection;
     }
 
-    public abstract UserDao userDao();
-
-    /*
 
 
-     static WordRoomDatabase getDatabase(final Context context) {
-       if (INSTANCE == null) {
-           synchronized (WordRoomDatabase.class) {
-               if (INSTANCE == null) {
-                   INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                           WordRoomDatabase.class, "word_database")
-                           .build();
-     */
+
 
 }
