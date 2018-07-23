@@ -24,9 +24,8 @@ public abstract class BetRoomDatabase extends RoomDatabase{
                     connection= Room.databaseBuilder(context.getApplicationContext(),BetRoomDatabase.class,"BetDatabase").build();
                 }
             }
-    }
-
-    return connection;
+        }
+        return connection;
     }
 
 
