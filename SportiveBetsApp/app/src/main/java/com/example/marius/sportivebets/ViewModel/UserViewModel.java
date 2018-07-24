@@ -5,8 +5,6 @@ package com.example.marius.sportivebets.ViewModel;
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
-import com.example.marius.sportivebets.model.connectionFactory.BetRepository;
-
 public class UserViewModel {
     private BetRepository mRepository;
     private LiveData<String> username;

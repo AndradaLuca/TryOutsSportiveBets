@@ -1,4 +1,4 @@
-package com.example.marius.sportivebets.model.entity;
+package com.example.marius.sportivebets.Db.entity;
 
 
 import android.arch.persistence.room.ColumnInfo;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "User")
+@Entity(tableName = "users")
 public class User {
 
 
