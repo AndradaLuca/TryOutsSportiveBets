@@ -17,15 +17,17 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".loginRegister.login.LoginActivity">
+        <activity android:name=".login.LoginActivity"
+            android:label="@string/login_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
-        <activity android:name=".loginRegister.register.RegisterActivity">
+        <activity android:name=".register.RegisterActivity">
 
         </activity>
     </application>

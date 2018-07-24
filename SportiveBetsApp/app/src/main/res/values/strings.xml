@@ -1,6 +1,7 @@
 <resources>
     <string
-        name="app_name">SportiveBets
+        name="app_name">s
 
     </string>
+    <string name="login_title">Login</string>
 </resources>

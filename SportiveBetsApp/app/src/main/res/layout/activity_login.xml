@@ -11,7 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context=".loginRegister.login.LoginActivity">
+    tools:context=".login.LoginActivity">
 
 
     <EditText
@@ -34,7 +34,6 @@
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:drawableRight="@drawable/passEye"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"

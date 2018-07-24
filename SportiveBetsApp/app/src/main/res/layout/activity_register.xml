@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".loginRegister.register.RegisterActivity">
+    tools:context=".register.RegisterActivity">
 
     <EditText
         android:id="@+id/usernameEditText"
@@ -126,6 +126,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:text="Register"
+        android:onClick=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/addressEditText"
         app:layout_constraintStart_toStartOf="@+id/addressEditText"

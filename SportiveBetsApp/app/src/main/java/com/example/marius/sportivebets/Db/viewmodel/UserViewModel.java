@@ -5,18 +5,18 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.example.marius.sportivebets.Db.Repository.UserRepository;
+import com.example.marius.sportivebets.Db.Repository.Repository;
 import com.example.marius.sportivebets.Db.entity.User;
 
 import java.util.List;
 
 public class UserViewModel extends AndroidViewModel {
-    private UserRepository repository;
+    private Repository repository;
     private LiveData<List<User>> mAllUsers;
 
     public UserViewModel(@NonNull Application application) {
         super(application);
-        repository = new UserRepository(application);
+        repository = new Repository(application);
         mAllUsers = repository.getmAllUsers();
     }
 
