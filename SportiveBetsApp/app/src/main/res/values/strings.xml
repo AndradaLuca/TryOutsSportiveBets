@@ -1,7 +1,14 @@
 <resources>
     <string
-        name="app_name">s
+        name="app_name">SportiveBets
 
     </string>
     <string name="login_title">Login</string>
+    <string name="username">username</string>
+    <string name="e_mail">e-mail</string>
+    <string name="cnp">CNP</string>
+    <string name="password">password</string>
+    <string name="address">address</string>
+    <string name="register">Register</string>
+    <string name="already_a_member_login_here">Already a member? Login here</string>
 </resources>

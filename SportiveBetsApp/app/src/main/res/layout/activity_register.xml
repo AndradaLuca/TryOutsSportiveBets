@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="wrap_content"
+   >
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,12 +25,13 @@
         android:layout_marginTop="24dp"
 
         android:ems="10"
-        android:hint="username"
+        android:hint="@string/username"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-       />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -43,9 +44,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="e-mail"
+        android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerUsernameEditText" />
 
@@ -59,9 +62,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="CNP"
+        android:hint="@string/cnp"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerEmailEditText" />
 
@@ -75,9 +80,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerCnpEditText" />
 
@@ -91,9 +98,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerPasswordEditText" />
 
@@ -107,10 +116,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="address"
+        android:hint="@string/address"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerSecondPasswordEditText" />
 
@@ -119,18 +129,32 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:text="Register"
-        android:onClick=""
+        android:text="@string/register"
+        app:layout_constraintEnd_toEndOf="@+id/registerAddressEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/registerAddressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/registerAddressEditText" />
+
+    <TextView
+        android:id="@+id/registerLoginHereTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/already_a_member_login_here"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/registerAddressEditText"
         app:layout_constraintStart_toStartOf="@+id/registerAddressEditText"
-        app:layout_constraintTop_toBottomOf="@+id/registerAddressEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        android:clickable="true"/>
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
