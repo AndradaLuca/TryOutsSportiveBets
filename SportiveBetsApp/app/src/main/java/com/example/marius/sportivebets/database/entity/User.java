@@ -1,4 +1,4 @@
-package com.example.marius.sportivebets.Db.entity;
+package com.example.marius.sportivebets.database.entity;
 
 
 import android.arch.persistence.room.ColumnInfo;

@@ -1,12 +1,12 @@
-package com.example.marius.sportivebets.Db.viewmodel;
+package com.example.marius.sportivebets.database.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.example.marius.sportivebets.Db.Repository.Repository;
-import com.example.marius.sportivebets.Db.entity.User;
+import com.example.marius.sportivebets.database.Repository.Repository;
+import com.example.marius.sportivebets.database.entity.User;
 
 import java.util.List;
 

@@ -19,15 +19,16 @@
         </activity>
         <activity android:name=".login.LoginActivity"
             android:label="@string/login_title">
+
+
+
+        </activity>
+        <activity android:name=".register.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-        </activity>
-        <activity android:name=".register.RegisterActivity">
 
         </activity>
     </application>

@@ -10,12 +10,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/backgroundColor"
     tools:context=".register.RegisterActivity">
 
     <EditText
-        android:id="@+id/usernameEditText"
+        android:id="@+id/registerUsernameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -34,7 +34,7 @@
 
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/registerEmailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -47,10 +47,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerUsernameEditText" />
 
     <EditText
-        android:id="@+id/cnpEditText"
+        android:id="@+id/registerCnpEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -63,10 +63,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEmailEditText" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/registerPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -79,10 +79,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cnpEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerCnpEditText" />
 
     <EditText
-        android:id="@+id/secondPasswordEditText"
+        android:id="@+id/registerSecondPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -95,10 +95,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerPasswordEditText" />
 
     <EditText
-        android:id="@+id/addressEditText"
+        android:id="@+id/registerAddressEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondPasswordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/registerSecondPasswordEditText" />
 
     <Button
         android:id="@+id/registerButton"
@@ -128,9 +128,9 @@
         android:text="Register"
         android:onClick=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/addressEditText"
-        app:layout_constraintStart_toStartOf="@+id/addressEditText"
-        app:layout_constraintTop_toBottomOf="@+id/addressEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/registerAddressEditText"
+        app:layout_constraintStart_toStartOf="@+id/registerAddressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/registerAddressEditText" />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>

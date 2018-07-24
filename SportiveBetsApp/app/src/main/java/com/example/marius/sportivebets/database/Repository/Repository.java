@@ -1,13 +1,12 @@
-package com.example.marius.sportivebets.Db.Repository;
+package com.example.marius.sportivebets.database.Repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.os.AsyncTask;
 
-import com.example.marius.sportivebets.Db.connectionFactory.BetRoomDatabase;
-import com.example.marius.sportivebets.Db.dao.UserDao;
-import com.example.marius.sportivebets.Db.entity.User;
+import com.example.marius.sportivebets.database.connectionFactory.BetRoomDatabase;
+import com.example.marius.sportivebets.database.dao.UserDao;
+import com.example.marius.sportivebets.database.entity.User;
 
 import java.util.List;
 

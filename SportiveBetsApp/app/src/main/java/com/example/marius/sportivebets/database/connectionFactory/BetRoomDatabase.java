@@ -1,12 +1,12 @@
-package com.example.marius.sportivebets.Db.connectionFactory;
+package com.example.marius.sportivebets.database.connectionFactory;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.marius.sportivebets.Db.dao.UserDao;
-import com.example.marius.sportivebets.Db.entity.User;
+import com.example.marius.sportivebets.database.dao.UserDao;
+import com.example.marius.sportivebets.database.entity.User;
 
 
 @Database(entities = {User.class}, version = 1)
