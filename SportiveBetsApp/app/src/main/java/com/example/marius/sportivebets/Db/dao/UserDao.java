@@ -17,7 +17,7 @@ public interface UserDao {
     void insertUser(User user);
 
     @Query("select name From users where name=:username & password = :pass ")
-    LiveData<String> serchLogin(String username,String pass);
+    String serchLogin(String username,String pass);
 
     @Query("select * from users")
     LiveData<List<User>> viewAllUsers();
