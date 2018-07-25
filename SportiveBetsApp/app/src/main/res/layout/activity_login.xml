@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="iLoginActivity"
@@ -11,8 +11,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:fillViewport="true"
-        >
+        android:fillViewport="true">
         <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -20,8 +19,6 @@
             android:layout_height="match_parent"
             android:background="@android:color/background_light"
             tools:context=".login.LoginActivity">
-
-
             <EditText
                 android:id="@+id/loginUsernameEditText"
                 android:layout_width="336dp"
@@ -91,26 +88,33 @@
                 app:layout_constraintStart_toStartOf="@+id/loginButton"
                 app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
-            <LinearLayout
-                android:layout_width="336dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:onClick="@{() -> iLoginActivity.showRegisterActivity()}"
-                app:layout_constraintEnd_toEndOf="@+id/forgotPasswordButton"
-                app:layout_constraintHorizontal_bias="0.0"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="right|center_vertical"
+                android:text="New here? "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
                 app:layout_constraintStart_toStartOf="@+id/forgotPasswordButton"
-                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton">
+                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton" />
 
-                <TextView
-                    android:id="@+id/registerNowTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="New here? Register now!"
-                    android:textColor="#000000" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:gravity="left|center_vertical"
+                android:onClick="@{() -> iLoginActivity.showRegisterActivity()}"
+                android:text="Register now!"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/forgotPasswordButton"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
