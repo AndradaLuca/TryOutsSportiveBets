@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
     public void showRegisterActivity() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
-        this.finish();
+
     }
 
     @Override
