@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+
+    </data>
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -154,7 +161,10 @@
         app:layout_constraintEnd_toEndOf="@+id/registerAddressEditText"
         app:layout_constraintStart_toStartOf="@+id/registerAddressEditText"
         app:layout_constraintTop_toBottomOf="@+id/registerButton"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:focusable="true"
+       />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
+</layout>
