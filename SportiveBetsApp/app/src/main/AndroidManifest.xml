@@ -19,18 +19,18 @@
         </activity>
         <activity
             android:name=".login.LoginActivity"
-            android:label="@string/login_title" >
+            android:label="@string/login_title">
+            <!--android:theme="@style/ActionBarTheme">-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
         <activity android:name=".register.RegisterActivity" android:label="Register">
 
-            <intent-filter>
 
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>
