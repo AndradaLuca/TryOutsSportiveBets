@@ -10,9 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-   >
-
+    android:layout_height="wrap_content">
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -149,21 +147,36 @@
 
     <TextView
         android:id="@+id/registerLoginHereTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/already_a_member_login_here"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/registerAddressEditText"
-        app:layout_constraintStart_toStartOf="@+id/registerAddressEditText"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
         android:clickable="true"
         android:focusable="true"
-       />
+        android:gravity="right|center_vertical"
+        android:text="@string/already_a_member_login_here"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/loginHereTestview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+    <TextView
+        android:id="@+id/loginHereTestview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/registerLoginHereTextView"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        tools:text=" Login here" />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
