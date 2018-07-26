@@ -14,6 +14,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
     ActivityLoginBinding loginBinding;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
     public void showRegisterActivity() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
-
+        finish();
     }
 
     @Override
