@@ -16,7 +16,7 @@ public class Validation {
 
     }
 
-    public static Boolean inUsernameValid(String username)
+    public static Boolean isUsernameValid(String username)
     {
        return !username.isEmpty() && !username.trim().isEmpty();
 
