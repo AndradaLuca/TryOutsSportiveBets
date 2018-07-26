@@ -15,30 +15,12 @@ import com.example.marius.sportivebets.login.LoginActivity;
 
 public class RegisterViewModel extends AndroidViewModel {
 
-        private ViewListener viewListener;
-        private String name;
-        private String email;
-        private String cnp;
-        private String password;
-        private String address;
+      public RegisterViewModel(@NonNull Application application)
+      {
+          super(application);
+      }
 
 
 
-        public RegisterViewModel (@NonNull Application application)
-        {
-            super(application);
-        }
-
-
-        public void showLoginScreen()
-        {
-
-        }
-
-
-    public interface ViewListener
-    {
-        void onLoginHereClick();
-    }
 
 }

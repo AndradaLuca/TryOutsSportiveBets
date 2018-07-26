@@ -1,5 +1,6 @@
 package com.example.marius.sportivebets.register;
 
+import android.app.Activity;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
@@ -15,11 +16,9 @@ import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.ActivityRegisterBinding;
 import com.example.marius.sportivebets.login.LoginActivity;
 
-import javax.inject.Inject;
 
-import dagger.android.support.DaggerAppCompatActivity;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterViewModel.ViewListener {
+public class RegisterActivity extends AppCompatActivity implements IRegisterActivity{
 
     //data binding
     ActivityRegisterBinding mBinding;
@@ -30,9 +29,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterViewM
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        mBinding= DataBindingUtil.setContentView(this,R.layout.activity_register);
-
-
-       mBinding.setViewModel(mViewModel);
+       mBinding.setIRegisterActivity(this);
+       initmViewModel();
 
     }
 
@@ -43,9 +41,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterViewM
 
 
     @Override
-    public void onLoginHereClick() {
-        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+    public void showLoginActivity() {
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+
+    }
+
+    @Override
+    public void register() {
+
+
     }
 }
