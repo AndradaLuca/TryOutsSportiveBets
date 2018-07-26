@@ -1,8 +1,5 @@
 package com.example.marius.sportivebets.utils;
 
-import android.arch.persistence.room.util.StringUtil;
-import android.media.MediaCodec;
-import android.text.TextUtils;
 import android.util.Patterns;
 
 import java.util.regex.Pattern;
@@ -18,21 +15,21 @@ public class Validation {
 
     public static Boolean isUsernameValid(String username)
     {
-       return !username.isEmpty() && !username.trim().isEmpty();
+        return !username.isEmpty();
 
 
     }
 
     public static Boolean isCnpValid(String cnp)
     {
-      return cnp.length()==13 && cnp.contains("[0-9]+");
+        return cnp.length() == 13;
 
     }
 
-    public static Boolean isPasswordValid(String password)
+    public static Boolean isPasswordValid(String password, String secondPassword)
     {
-        String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
-        return password.matches(pattern);
+
+        return password.equals(secondPassword);
     }
 
     public static Boolean isAddressValid(String address)

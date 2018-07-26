@@ -1,26 +1,57 @@
 package com.example.marius.sportivebets.register;
 
-import android.app.Activity;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.ViewModel;
-import android.content.Intent;
+import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
-import android.view.View;
 
-import com.example.marius.sportivebets.login.LoginActivity;
-
-
+import com.example.marius.sportivebets.database.entity.User;
+import com.example.marius.sportivebets.utils.Validation;
 
 
 public class RegisterViewModel extends AndroidViewModel {
+
+    private MutableLiveData<String> registerFaild = new MutableLiveData<>();
 
       public RegisterViewModel(@NonNull Application application)
       {
           super(application);
       }
 
+    public MutableLiveData<String> getRegisterFaild() {
+        return registerFaild;
+    }
+
+    private Boolean isValid(String username, String email, String password, String secondPassword, String cnp, String address) {
+        if (!Validation.isUsernameValid(username)) {
+            registerFaild.postValue("Invalid username");
+            return false;
+        } else if (!Validation.isEmailValid(email)) {
+            registerFaild.postValue("Invalid e-mail ");
+            return false;
+        } else if (!Validation.isCnpValid(cnp)) {
+            registerFaild.postValue("Invalid CNP");
+            return false;
+        } else if (!Validation.isPasswordValid(password, secondPassword)) {
+            registerFaild.postValue("The passwords do not match");
+            return false;
+
+        } else if (!Validation.isAddressValid(address)) {
+            registerFaild.postValue("Invalid address ");
+            return false;
+        }
+
+        return true;
+    }
+
+    public void onRegisterClick(String username, String email, String password, String secondPassword, String cnp, String address) {
+        if (isValid(username, email, password, secondPassword, cnp, address)) {  //create user and send it to repository
+
+            registerFaild.postValue("You have been successfully registered");
+            User user = new User(cnp, username, email, address, password, 0);
 
 
+        }
+    }
 
 }

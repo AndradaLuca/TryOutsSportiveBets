@@ -1,21 +1,17 @@
 package com.example.marius.sportivebets.register;
 
-import android.app.Activity;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingComponent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.ActivityRegisterBinding;
 import com.example.marius.sportivebets.login.LoginActivity;
 
+import static android.widget.Toast.LENGTH_SHORT;
 
 
 public class RegisterActivity extends AppCompatActivity implements IRegisterActivity{
@@ -37,6 +33,11 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterActi
     public void initmViewModel()
     {
         mViewModel=ViewModelProviders.of(this).get(RegisterViewModel.class);
+        mViewModel.getRegisterFaild().observe(this, (message) -> {
+            Toast.makeText(RegisterActivity.this, message, LENGTH_SHORT).show();
+        });
+
+
     }
 
 
@@ -50,6 +51,15 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterActi
 
     @Override
     public void register() {
+        String username = mBinding.registerUsernameEditText.getText().toString();
+        String email = mBinding.registerEmailEditText.getText().toString();
+        String cnp = mBinding.registerCnpEditText.getText().toString();
+        String password = mBinding.registerPasswordEditText.getText().toString();
+        String secondPassword = mBinding.registerSecondPasswordEditText.getText().toString();
+        String address = mBinding.registerAddressEditText.getText().toString();
+
+
+        mViewModel.onRegisterClick(username, email, password, secondPassword, cnp, address);
 
 
     }
