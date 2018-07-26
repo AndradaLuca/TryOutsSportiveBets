@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.ActivityLoginBinding;
+import com.example.marius.sportivebets.forgotPassword.ForgotPasswordActivity;
 import com.example.marius.sportivebets.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements ILoginActivity {
@@ -36,5 +37,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
     @Override
     public void forgotPassword() {
         Toast.makeText(this, "ForgotPassword Pressed", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+        startActivity(intent);
     }
 }
