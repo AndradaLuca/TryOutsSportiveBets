@@ -10,26 +10,22 @@ import com.example.marius.sportivebets.database.entity.User;
 
 
 @Database(entities = {User.class}, version = 1)
-public abstract class BetRoomDatabase extends RoomDatabase{
+public abstract class BetRoomDatabase extends RoomDatabase {
 
-    private static BetRoomDatabase connection;
+    private static BetRoomDatabase instance;
+
     public abstract UserDao userDao();
-    public static BetRoomDatabase getDatabase(final Context context)
-    {
-        if(connection== null){
-            synchronized ( (BetRoomDatabase.class))
-            {
-                if( connection == null)
-                {
-                    connection= Room.databaseBuilder(context.getApplicationContext(),BetRoomDatabase.class,"BetDatabase").build();
-                }
-            }
+
+    public static BetRoomDatabase getDatabase(final Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(), BetRoomDatabase.class, "user-database").allowMainThreadQueries().build();
+
         }
-        return connection;
+        return instance;
+
     }
 
-
-
-
-
+    public static void destroyInstance() {
+        instance = null;
+    }
 }

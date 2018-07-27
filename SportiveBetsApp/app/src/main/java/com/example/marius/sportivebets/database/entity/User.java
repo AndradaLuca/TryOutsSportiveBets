@@ -3,31 +3,31 @@ package com.example.marius.sportivebets.database.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "users")
+@Entity(tableName = "User", indices = {@Index(value = {"CNP", "email"}, unique = true)})
 public class User {
 
 
     @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "CNP")
     private String CNP;
 
-    @NonNull
+    @ColumnInfo(name = "Name")
     private String name;
 
-    @NonNull
+    @ColumnInfo(name = "Email")
     private String mail;
 
-    @NonNull
+    @ColumnInfo(name = "Address")
     private String address;
 
-    @NonNull
+    @ColumnInfo(name = "Password")
     private String password;
 
-    @NonNull
+    @ColumnInfo(name = "Ammount")
     private double mouney;
 
     public User() {
