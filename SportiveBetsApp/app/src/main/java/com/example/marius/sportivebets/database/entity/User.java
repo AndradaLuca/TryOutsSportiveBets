@@ -7,11 +7,12 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "User", indices = {@Index(value = {"CNP", "email"}, unique = true)})
+@Entity(tableName = "User", indices = {@Index(value = {"CNP", "Email"}, unique = true)})
 public class User {
 
 
     @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "CNP")
     private String CNP;
 

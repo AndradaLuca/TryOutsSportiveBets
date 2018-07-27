@@ -17,7 +17,7 @@ public class UserViewModel extends AndroidViewModel {
     public UserViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
-        mAllUsers = repository.getmAllUsers();
+
     }
 
     LiveData<List<User>> getAllUsers(){
