@@ -50,4 +50,5 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
     implementation 'joda-time:joda-time:2.10'
+    implementation 'com.github.GrenderG:Toasty:1.3.0'
 }

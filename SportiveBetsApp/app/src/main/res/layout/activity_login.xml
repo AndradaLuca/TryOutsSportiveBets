@@ -14,37 +14,57 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:fillViewport="true">
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/background_light"
             tools:context=".login.LoginActivity">
-            <EditText
-                android:id="@+id/loginUsernameEditText"
-                android:layout_width="336dp"
-                android:layout_height="50dp"
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="100dp"
-                android:ems="10"
-                android:hint="Username"
-                android:inputType="text|textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/loginPasswordEditText"
+                app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintVertical_chainStyle="spread_inside" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/loginPasswordEditText"
-                android:layout_width="336dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/loginUsernameEditText"
-                app:layout_constraintStart_toStartOf="@+id/loginUsernameEditText"
-                app:layout_constraintTop_toBottomOf="@+id/loginUsernameEditText" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/loginUsernameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Username"
+                    android:inputType="text|textPersonName" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/loginPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Password"
+                    android:inputType="textVisiblePassword|textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
 
             <Button
                 android:id="@+id/loginButton"
@@ -52,12 +72,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="login"
                 android:onClick="@{() -> iLoginActivity.login()}"
-                app:layout_constraintEnd_toEndOf="@+id/loginPasswordEditText"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/loginPasswordEditText"
-                app:layout_constraintTop_toBottomOf="@+id/keepMeLogedInTextView" />
+                android:text="login"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/loginSwitch" />
 
             <TextView
                 android:id="@+id/keepMeLogedInTextView"
@@ -66,15 +85,15 @@
                 android:text="Keep me signed in"
                 android:textColor="#000000"
                 app:layout_constraintBaseline_toBaselineOf="@+id/loginSwitch"
-                app:layout_constraintStart_toStartOf="@+id/loginPasswordEditText" />
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout4" />
 
             <Switch
                 android:id="@+id/loginSwitch"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/loginPasswordEditText"
-                app:layout_constraintTop_toBottomOf="@+id/loginPasswordEditText" />
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
             <Button
                 android:id="@+id/forgotPasswordButton"
@@ -82,8 +101,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Forgot Password?"
                 android:onClick="@{() -> iLoginActivity.forgotPassword()}"
+                android:text="Forgot Password?"
                 app:layout_constraintEnd_toEndOf="@+id/loginButton"
                 app:layout_constraintStart_toStartOf="@+id/loginButton"
                 app:layout_constraintTop_toBottomOf="@+id/loginButton" />

@@ -13,6 +13,15 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
+
+    public static boolean isLoginEmailValid(String email){
+        return !email.isEmpty();
+    }
+
+    public static boolean isLoginPasswordValid(String password){
+        return !password.isEmpty();
+    }
+
     public static Boolean isEmailValid(String email)
     {
         Pattern pattern = Patterns.EMAIL_ADDRESS;

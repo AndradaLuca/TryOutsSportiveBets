@@ -4,9 +4,9 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.example.marius.sportivebets.database.entity.User;
+import com.example.marius.sportivebets.utils.Validation;
 
 public class LoginViewModel extends AndroidViewModel {
     // corect cu User
@@ -27,10 +27,13 @@ public class LoginViewModel extends AndroidViewModel {
     public void onLoginClick(String email, String password, boolean isKeepLogged){
         //todo 1-Validare pe UI 2-
         // la validare fac un if else si daca ii facuta validare corect
-        if (isKeepLogged) {
+        if (!Validation.isLoginEmailValid(email)) {
+            loginFaild.postValue("Empty e-mail !!!");
+        }else if (!Validation.isLoginPasswordValid(password)){
+            loginFaild.postValue("Empty password !!!");
+        }else {
             loginSuccess.postValue(new User());
-        }else
-        loginFaild.postValue("loginFaild");
+        }
        //Log.d("onLoginClick","Email:"+email+" Password:"+password+" isKeepLogged:"+isKeepLogged);
     }
 }

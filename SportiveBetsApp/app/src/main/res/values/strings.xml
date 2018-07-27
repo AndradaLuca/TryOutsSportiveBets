@@ -12,7 +12,6 @@
     <string name="already_a_member_login_here">Already a member?</string>
     <string name="login_here">Login here</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

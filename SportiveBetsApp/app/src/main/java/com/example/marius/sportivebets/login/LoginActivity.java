@@ -1,13 +1,12 @@
 package com.example.marius.sportivebets.login;
 
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.marius.sportivebets.R;
@@ -15,6 +14,8 @@ import com.example.marius.sportivebets.database.entity.User;
 import com.example.marius.sportivebets.databinding.ActivityLoginBinding;
 import com.example.marius.sportivebets.forgotPassword.ForgotPasswordActivity;
 import com.example.marius.sportivebets.register.RegisterActivity;
+
+import es.dmoral.toasty.Toasty;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginViewModel.getLoginFaild().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                Toast.makeText(LoginActivity.this,s+" bla bla", LENGTH_SHORT).show();
+                Toasty.error(LoginActivity.this,s, LENGTH_SHORT).show();
             }
         });
     }
