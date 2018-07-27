@@ -43,7 +43,7 @@
                     android:id="@+id/loginUsernameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Username"
+                    android:hint="@string/Username"
                     android:inputType="text|textPersonName"
                     android:selectAllOnFocus="false"
                     android:singleLine="true" />
@@ -69,7 +69,7 @@
                     android:id="@+id/loginPasswordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Password"
+                    android:hint="@string/Password"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:onClick="@{() -> iLoginActivity.login()}"
-                android:text="login"
+                android:text="@string/login"
                 app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
                 app:layout_constraintTop_toBottomOf="@+id/loginSwitch" />
@@ -90,7 +90,7 @@
                 android:id="@+id/keepMeLogedInTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keep me signed in"
+                android:text="@string/Keepmesignedin"
                 android:textColor="#000000"
                 app:layout_constraintBaseline_toBaselineOf="@+id/loginSwitch"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout4" />
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:onClick="@{() -> iLoginActivity.forgotPassword()}"
-                android:text="Forgot Password?"
+                android:text="@string/forgotPassword"
                 app:layout_constraintEnd_toEndOf="@+id/loginButton"
                 app:layout_constraintStart_toStartOf="@+id/loginButton"
                 app:layout_constraintTop_toBottomOf="@+id/loginButton" />
@@ -120,8 +120,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:gravity="right|center_vertical"
-                android:text="New here?  "
+                android:gravity="end|center_vertical"
+                android:text="@string/newHere"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView3"
@@ -135,11 +135,12 @@
                 android:clickable="true"
                 android:gravity="left|center_vertical"
                 android:onClick="@{() -> iLoginActivity.showRegisterActivity()}"
-                android:text="Register now!"
+                android:text="@string/egisterNow"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton" />
+                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/textView3"

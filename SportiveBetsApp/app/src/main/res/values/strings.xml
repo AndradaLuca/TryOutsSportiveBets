@@ -11,7 +11,16 @@
     <string name="register">Register</string>
     <string name="already_a_member_login_here">Already a member?</string>
     <string name="login_here">Login here</string>
-
+    <string name="Password">Password</string>
+    <string name="login">login</string>
+    <string name="Keepmesignedin">Keep me signed in</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="newHere">New here?  </string>
+    <string name="Username">Username</string>
+    <string name="egisterNow">Register now!</string>
+    <string name="enter_e_mail_address">Enter e-mail address</string>
+    <string name="enter_your_account_e_mail_and_a_new_password_will_be_sent_at_the_e_mail_address">Enter your account e-mail and a new password will be sent at the e-mail address</string>
+    <string name="submit">Submit</string>
 
 
 </resources>
