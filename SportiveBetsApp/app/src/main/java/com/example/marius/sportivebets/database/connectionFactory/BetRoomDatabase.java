@@ -18,7 +18,7 @@ public abstract class BetRoomDatabase extends RoomDatabase {
 
     public static BetRoomDatabase getDatabase(final Context context) {
         if (instance == null) {
-            instance = Room.databaseBuilder(context.getApplicationContext(), BetRoomDatabase.class, "user-database").allowMainThreadQueries().build();
+            instance = Room.databaseBuilder(context.getApplicationContext(), BetRoomDatabase.class, "user-database").build();
 
         }
         return instance;

@@ -36,6 +36,9 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterActi
         mViewModel.getRegisterFaild().observe(this, (message) -> {
             Toast.makeText(RegisterActivity.this, message, LENGTH_SHORT).show();
         });
+        mViewModel.getRegisterSuccess().observe(this, (message) -> {
+            Toast.makeText(RegisterActivity.this, message, LENGTH_SHORT).show();
+        });
 
 
     }

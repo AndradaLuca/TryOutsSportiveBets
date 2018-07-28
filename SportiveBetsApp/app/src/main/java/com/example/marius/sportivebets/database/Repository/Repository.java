@@ -1,7 +1,9 @@
 package com.example.marius.sportivebets.database.Repository;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.marius.sportivebets.database.connectionFactory.BetRoomDatabase;
 import com.example.marius.sportivebets.database.dao.UserDao;
@@ -9,8 +11,8 @@ import com.example.marius.sportivebets.database.entity.User;
 
 public class Repository {
     private UserDao userDao;
-
     private BetRoomDatabase db;
+    private LiveData<User> user;
 
 
     public Repository(Application application){
@@ -19,26 +21,26 @@ public class Repository {
 
     }
 
-    public void insert (User user){
-        new insertAsyncTask(userDao).execute(user);
+    public LiveData<User> getUser() {
+        return user;
     }
-    private static class insertAsyncTask extends AsyncTask<User, Void, Void> {
 
-        private UserDao mAsyncTaskDao;
+    public void findUserForLogin(String username, String password) {
+        user = userDao.findByUsernameAndPAssword(username, password);
+    }
 
-        insertAsyncTask(UserDao dao) {
-            mAsyncTaskDao = dao;
-        }
 
+    public void addUser(User user) {
+        new AddUser().execute(user);
+        Log.d("addUser", "Success");
+    }
+
+    public class AddUser extends AsyncTask<User, Void, Void> {
         @Override
-        protected Void doInBackground(final User... params) {
-            mAsyncTaskDao.insertUser(params[0]);
+        protected Void doInBackground(User... users) {
+            userDao.insertUser(users[0]);
+            Log.d("", "Success");
             return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
         }
     }
 }
