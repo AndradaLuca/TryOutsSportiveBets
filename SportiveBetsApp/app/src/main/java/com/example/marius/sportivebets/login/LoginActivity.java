@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.example.marius.sportivebets.MainActivity;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.database.entity.User;
 import com.example.marius.sportivebets.databinding.ActivityLoginBinding;
@@ -37,7 +38,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginViewModel.getLoginSuccess().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
-                Toast.makeText(LoginActivity.this,"login sucses", LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
             }
         });
         loginViewModel.getLoginFaild().observe(this, new Observer<String>() {

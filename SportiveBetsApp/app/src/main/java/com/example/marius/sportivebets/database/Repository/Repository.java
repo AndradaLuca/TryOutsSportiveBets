@@ -12,7 +12,8 @@ import com.example.marius.sportivebets.database.entity.User;
 public class Repository {
     private UserDao userDao;
     private BetRoomDatabase db;
-    private LiveData<User> user;
+    private LiveData<User> userLiveData;
+
 
 
     public Repository(Application application){
@@ -21,12 +22,16 @@ public class Repository {
 
     }
 
-    public LiveData<User> getUser() {
-        return user;
-    }
+    public User findUserByEmailAndPassword(String email, String password) {
+        final User[] user = new User[1];
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user[0] = userDao.findByUsernameAndPAssword(email, password);
+            }
+        }).start();
 
-    public void findUserForLogin(String username, String password) {
-        user = userDao.findByUsernameAndPAssword(username, password);
+        return user[0];
     }
 
 
