@@ -9,7 +9,7 @@ import com.example.marius.sportivebets.database.dao.UserDao;
 import com.example.marius.sportivebets.database.entity.User;
 
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 2)
 public abstract class BetRoomDatabase extends RoomDatabase {
 
     private static BetRoomDatabase instance;
@@ -18,12 +18,13 @@ public abstract class BetRoomDatabase extends RoomDatabase {
 
     public static BetRoomDatabase getDatabase(final Context context) {
         if (instance == null) {
-            instance = Room.databaseBuilder(context.getApplicationContext(), BetRoomDatabase.class, "user-database").build();
+            instance = Room.databaseBuilder(context.getApplicationContext(), BetRoomDatabase.class, "user-database").fallbackToDestructiveMigration().build();
 
         }
         return instance;
 
     }
+
 
     public static void destroyInstance() {
         instance = null;

@@ -12,7 +12,7 @@ import com.example.marius.sportivebets.database.entity.User;
 public class Repository {
     private UserDao userDao;
     private BetRoomDatabase db;
-    private LiveData<User> userLiveData;
+    private LiveData<User> userLiveData = null;
 
 
 
@@ -20,18 +20,18 @@ public class Repository {
         db = BetRoomDatabase.getDatabase(application);
         userDao = db.userDao();
 
+
     }
 
-    public User findUserByEmailAndPassword(String email, String password) {
-        final User[] user = new User[1];
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                user[0] = userDao.findByUsernameAndPAssword(email, password);
-            }
-        }).start();
 
-        return user[0];
+    public boolean findUser(String email, String password) {
+        Boolean verific = false;
+        System.out.println("FFFFFFFFFFFFFFFFFFFFFF" + userDao.findByUsernameAndPAssword(email, password).toString());
+        if (userDao.findByUsernameAndPAssword(email, password) != null) {
+            verific = true;
+        }
+
+        return verific;
     }
 
 

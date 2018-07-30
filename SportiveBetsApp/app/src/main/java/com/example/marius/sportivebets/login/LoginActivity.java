@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login);
         loginBinding.setILoginActivity(this);
         initViewModel();
+
     }
 
     private void initViewModel(){
@@ -38,9 +39,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginViewModel.getLoginSuccess().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("username",user.getName().toString());
-                startActivity(intent);
+                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                //intent.putExtra("username",user.getName());
+                // startActivity(intent);
 
             }
         });
@@ -48,6 +49,18 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
             @Override
             public void onChanged(@Nullable String s) {
                 Toasty.error(LoginActivity.this,s, LENGTH_SHORT).show();
+            }
+        });
+        loginViewModel.getFindUserSucces().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                if (aBoolean) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                    startActivity(intent);
+
+                }
+
             }
         });
     }

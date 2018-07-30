@@ -13,6 +13,7 @@ import com.example.marius.sportivebets.utils.Validation;
 public class LoginViewModel extends AndroidViewModel {
     // corect cu User
     private MutableLiveData<User> loginSuccess = new MutableLiveData<>();
+    private MutableLiveData<Boolean> findUserSucces = new MutableLiveData<>();
     private MutableLiveData<String> loginFaild = new MutableLiveData<>();
     private LiveData<User> user;
     private Repository repository;
@@ -21,10 +22,15 @@ public class LoginViewModel extends AndroidViewModel {
         super(application);
         repository = new Repository(application);
 
+
     }
 
     public MutableLiveData<User> getLoginSuccess() {
         return loginSuccess;
+    }
+
+    public MutableLiveData<Boolean> getFindUserSucces() {
+        return findUserSucces;
     }
 
     public MutableLiveData<String> getLoginFaild() {
@@ -40,9 +46,9 @@ public class LoginViewModel extends AndroidViewModel {
             loginFaild.postValue("Empty password !!!");
         }else {
 
+            findUserSucces.postValue(repository.findUser(email, password));
 
-            loginSuccess.postValue(repository.findUserByEmailAndPassword(email, password));
         }
-       //Log.d("onLoginClick","Email:"+email+" Password:"+password+" isKeepLogged:"+isKeepLogged);
+
     }
 }

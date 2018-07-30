@@ -7,7 +7,7 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "User", indices = {@Index(value = {"CNP", "Email"}, unique = true)})
+@Entity(tableName = "User", indices = {@Index(value = {"CNP"}, unique = true)})
 public class User {
 
 
@@ -97,5 +97,18 @@ public class User {
 
     public void setMouney(@NonNull double mouney) {
         this.mouney = mouney;
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "CNP='" + CNP + '\'' +
+                ", name='" + name + '\'' +
+                ", mail='" + mail + '\'' +
+                ", address='" + address + '\'' +
+                ", password='" + password + '\'' +
+                ", mouney=" + mouney +
+                '}';
     }
 }
