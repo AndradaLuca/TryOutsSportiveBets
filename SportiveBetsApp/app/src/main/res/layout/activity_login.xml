@@ -43,7 +43,7 @@
                     android:id="@+id/loginUsernameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="@string/Username"
+                    android:hint="@string/e_mail"
                     android:inputType="text|textPersonName"
                     android:selectAllOnFocus="false"
                     android:singleLine="true" />

@@ -39,9 +39,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
             @Override
             public void onChanged(@Nullable User user) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("username",user.getName().toString());
+//                intent.putExtra("username",loginViewModel.getUser().getName());
                 startActivity(intent);
-
             }
         });
         loginViewModel.getLoginFaild().observe(this, new Observer<String>() {

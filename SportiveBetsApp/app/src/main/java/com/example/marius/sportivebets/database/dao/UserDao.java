@@ -13,9 +13,10 @@ public interface UserDao {
     @Insert
     void insertUser(User user);
 
-    @Query("select * From User where name=:username & password = :pass ")
+    @Query("select * From User where email = :username & password = :pass ")
     User findByUsernameAndPAssword(String username, String pass);
-
+//    @Query("select * from User")
+//    List<User> getUsers();
 
 
 

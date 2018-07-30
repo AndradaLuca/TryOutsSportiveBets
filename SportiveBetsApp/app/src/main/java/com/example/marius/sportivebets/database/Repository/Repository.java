@@ -13,6 +13,7 @@ public class Repository {
     private UserDao userDao;
     private BetRoomDatabase db;
     private LiveData<User> userLiveData;
+//    private List<User> users;
 
 
 
@@ -20,7 +21,12 @@ public class Repository {
         db = BetRoomDatabase.getDatabase(application);
         userDao = db.userDao();
 
+
     }
+//    public List<User> getUsers(){
+//        return users;
+//    }
+
 
     public User findUserByEmailAndPassword(String email, String password) {
         final User[] user = new User[1];
