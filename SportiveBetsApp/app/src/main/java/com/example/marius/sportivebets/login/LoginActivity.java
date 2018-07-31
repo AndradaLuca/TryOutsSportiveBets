@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         super.onCreate(savedInstanceState);
         loginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login);
         loginBinding.setILoginActivity(this);
+        loginBinding.loginPasswordEditText.setText("asd");
+        loginBinding.loginUsernameEditText.setText("asd@asd.com");
         initViewModel();
 
     }
@@ -39,28 +41,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginViewModel.getLoginSuccess().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
-                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                //intent.putExtra("username",user.getName());
-                // startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("username",user.getName());
+                startActivity(intent);
 
             }
         });
-        loginViewModel.getLoginFaild().observe(this, new Observer<String>() {
+        loginViewModel.getLoginFailed().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 Toasty.error(LoginActivity.this,s, LENGTH_SHORT).show();
-            }
-        });
-        loginViewModel.getFindUserSucces().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
-                if (aBoolean) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                    startActivity(intent);
-
-                }
-
             }
         });
     }

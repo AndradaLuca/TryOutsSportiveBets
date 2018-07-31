@@ -15,6 +15,8 @@ public interface UserDao {
 
     @Query("select * From User where Email = :email AND Password = :pass")
     User findByUsernameAndPAssword(String email, String pass);
+    @Query("select * From User where Email = :email")
+    User findUserForSubmit(String email);
 
 
 

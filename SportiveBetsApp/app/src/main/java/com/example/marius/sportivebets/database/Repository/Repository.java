@@ -1,7 +1,6 @@
 package com.example.marius.sportivebets.database.Repository;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -9,29 +8,58 @@ import com.example.marius.sportivebets.database.connectionFactory.BetRoomDatabas
 import com.example.marius.sportivebets.database.dao.UserDao;
 import com.example.marius.sportivebets.database.entity.User;
 
+import java.util.concurrent.ExecutionException;
+
 public class Repository {
     private UserDao userDao;
     private BetRoomDatabase db;
-    private LiveData<User> userLiveData = null;
+    User user;
 
 
 
     public Repository(Application application){
         db = BetRoomDatabase.getDatabase(application);
         userDao = db.userDao();
-
-
     }
 
-
-    public boolean findUser(String email, String password) {
-        Boolean verific = false;
-        System.out.println("FFFFFFFFFFFFFFFFFFFFFF" + userDao.findByUsernameAndPAssword(email, password).toString());
-        if (userDao.findByUsernameAndPAssword(email, password) != null) {
-            verific = true;
+    public User findUserForSubmit(String email) {
+        try {
+            user = new FindUserForSubmit().execute(new String[]{email}).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
+        System.out.println("Function "+user);
+        return user;
+    }
+    public class FindUserForSubmit extends AsyncTask<String, Void, User> {
+        @Override
+        protected User doInBackground(String... strings) {
+            user = userDao.findUserForSubmit(strings[0]+"");
+            System.out.println("   Asynk   "+user);
+            return user;
+        }
+    }
 
-        return verific;
+    public User findUser(String email, String password) {
+        try {
+            user = new FindUser().execute(new String[]{email,password}).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Function "+user);
+        return user;
+    }
+    public class FindUser extends AsyncTask<String, Void, User> {
+        @Override
+        protected User doInBackground(String... strings) {
+            user = userDao.findByUsernameAndPAssword(strings[0]+"", strings[1]+"");
+            System.out.println("   Asynk   "+user);
+            return user;
+        }
     }
 
 

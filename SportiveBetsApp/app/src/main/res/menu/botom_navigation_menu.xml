@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_menu"
+        android:title="Home"
+        android:icon="@drawable/home_menu"
+        android:iconTint="@color/black">
+    </item>
+    <item
+        android:id="@+id/deposit_menu"
+        android:title="Deposit"
+        android:icon="@drawable/deposit_menu"
+        android:iconTint="@color/black">
+    </item>
+
+    <item
+        android:id="@+id/MyBets_menu"
+        android:title="MyBets"
+        android:icon="@drawable/myBets_menu"
+        android:iconTint="@color/black">
+    </item>
+    <item
+        android:id="@+id/betTicket_menu"
+        android:title="Bet Ticket"
+        android:icon="@drawable/betTicket_menu"
+        android:iconTint="@color/black">
+    </item>
+</menu>

@@ -21,6 +21,13 @@
     <string name="enter_e_mail_address">Enter e-mail address</string>
     <string name="enter_your_account_e_mail_and_a_new_password_will_be_sent_at_the_e_mail_address">Enter your account e-mail and the password will be sent at the e-mail address</string>
     <string name="submit">Submit</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 
 </resources>

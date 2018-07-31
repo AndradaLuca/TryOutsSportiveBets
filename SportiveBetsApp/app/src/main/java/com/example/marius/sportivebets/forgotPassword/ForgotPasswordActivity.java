@@ -33,17 +33,15 @@ public class ForgotPasswordActivity extends AppCompatActivity implements IForgot
                 Toasty.success(ForgotPasswordActivity.this,s, LENGTH_SHORT,true).show();
             }
         });
-        forgotPasswordViewModel.getSubmitFaild().observe(this, new Observer<String>() {
+        forgotPasswordViewModel.getSubmitFailed().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 Toasty.error(ForgotPasswordActivity.this,s, LENGTH_SHORT).show();
             }
         });
     }
-
     @Override
     public void onSubmitClick() {
         forgotPasswordViewModel.onSubmitClick(forgotPasswordBinding.editText.getText().toString());
-        //Toasty.success(this,"Submitted", Toast.LENGTH_SHORT,true).show();
     }
 }

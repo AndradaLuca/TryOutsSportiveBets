@@ -5,31 +5,38 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
+import com.example.marius.sportivebets.database.Repository.Repository;
 import com.example.marius.sportivebets.utils.Validation;
 
 public class ForgotPasswordViewModel extends AndroidViewModel {
+
+    private Repository repository;
     private MutableLiveData<String> submitSuccess = new MutableLiveData<>();
-    private MutableLiveData<String> submitFaild = new MutableLiveData<>();
+    private MutableLiveData<String> submitFailed = new MutableLiveData<>();
     public ForgotPasswordViewModel(@NonNull Application application) {
         super(application);
+        repository = new Repository(application);
     }
 
     public MutableLiveData<String> getSubmitSuccess() {
         return submitSuccess;
     }
 
-    public MutableLiveData<String> getSubmitFaild() {
-        return submitFaild;
+    public MutableLiveData<String> getSubmitFailed() {
+        return submitFailed;
     }
 
     public void onSubmitClick(String email){
-        //todo 1-Validare pe UI 2-
-        // la validare fac un if else si daca ii facuta validare corect
         if (!Validation.isLoginEmailValid(email)) {
-            submitFaild.postValue("Empty e-mail !!!");
+            submitFailed.postValue("Empty e-mail !!!");
         }else {
-            submitSuccess.postValue("Submitted succesfully");
+            if (repository.findUserForSubmit(email) != null){
+                submitSuccess.postValue("Submitted succesfully");
+                // TODO implement sending email to user with the new password
+            }
+            else{
+                submitFailed.postValue("Not registered yet !!!");
+            }
         }
-        //Log.d("onLoginClick","Email:"+email+" Password:"+password+" isKeepLogged:"+isKeepLogged);
     }
 }

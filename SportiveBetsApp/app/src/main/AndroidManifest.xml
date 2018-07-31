@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_title">
@@ -27,8 +27,8 @@
         <activity
             android:name=".register.RegisterActivity"
             android:label="Register"
-            android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".forgotPassword.ForgotPasswordActivity"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".forgotPassword.ForgotPasswordActivity" />
     </application>
 
 </manifest>
