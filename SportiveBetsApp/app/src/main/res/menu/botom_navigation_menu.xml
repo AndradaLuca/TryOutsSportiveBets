@@ -10,20 +10,26 @@
     <item
         android:id="@+id/deposit_menu"
         android:title="Deposit"
-        android:icon="@drawable/deposit_menu"
+        android:icon="@drawable/deposit_money"
+        android:iconTint="@color/black">
+    </item>
+    <item
+        android:id="@+id/withdraw_menu"
+        android:title="Withdraw"
+        android:icon="@drawable/withdrw_money"
         android:iconTint="@color/black">
     </item>
 
     <item
         android:id="@+id/MyBets_menu"
         android:title="MyBets"
-        android:icon="@drawable/myBets_menu"
+        android:icon="@drawable/my_bets_menu"
         android:iconTint="@color/black">
     </item>
     <item
         android:id="@+id/betTicket_menu"
         android:title="Bet Ticket"
-        android:icon="@drawable/betTicket_menu"
+        android:icon="@drawable/bet_ticket_menu"
         android:iconTint="@color/black">
     </item>
 </menu>

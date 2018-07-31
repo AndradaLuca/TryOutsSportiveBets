@@ -20,14 +20,20 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp">
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <android.support.design.widget.BottomNavigationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:menu="@menu/botom_navigation_menu"></android.support.design.widget.BottomNavigationView>
+                app:menu="@menu/botom_navigation_menu">
+
+            </android.support.design.widget.BottomNavigationView>
         </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
