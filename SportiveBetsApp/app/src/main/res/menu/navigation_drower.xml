@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Football"
+        android:icon="@drawable/ic_soccer">
+    </item>
+    <item android:title="Tenis"
+        android:icon="@drawable/ic_tennis_ball">
+    </item>
+    <item android:title="Ping Pong"
+        android:icon="@drawable/ic_ping_pong">
+    </item>
+    <item android:title="Basketball"
+        android:icon="@drawable/ic_basketball">
+    </item>
+
+
+
+</menu>
