@@ -9,20 +9,20 @@
     </item>
     <item
         android:id="@+id/deposit_menu"
-        android:title="Deposit"
+        android:title="Deposit Money"
         android:icon="@drawable/deposit_money"
         android:iconTint="@color/black">
     </item>
     <item
         android:id="@+id/withdraw_menu"
-        android:title="Withdraw"
+        android:title="Withdraw Money"
         android:icon="@drawable/withdrw_money"
         android:iconTint="@color/black">
     </item>
 
     <item
         android:id="@+id/MyBets_menu"
-        android:title="MyBets"
+        android:title="My Bets"
         android:icon="@drawable/my_bets_menu"
         android:iconTint="@color/black">
     </item>
