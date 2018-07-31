@@ -31,9 +31,10 @@
             <android.support.design.widget.BottomNavigationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:menu="@menu/botom_navigation_menu">
-
-            </android.support.design.widget.BottomNavigationView>
+                android:background="@color/colorAccent"
+                app:menu="@menu/botom_navigation_menu"
+                app:itemIconTint="@drawable/bottom_navigation_colors"
+                app:itemTextColor="@drawable/bottom_navigation_colors"/>
         </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
