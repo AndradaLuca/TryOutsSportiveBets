@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">SportiveBets
-
-    </string>
+    <string name="app_name">SportiveBets</string>
     <string name="login_title">Login</string>
     <string name="username">username</string>
     <string name="e_mail">E-mail</string>
@@ -28,6 +26,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 
 </resources>

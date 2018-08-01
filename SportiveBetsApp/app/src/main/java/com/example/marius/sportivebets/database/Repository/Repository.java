@@ -4,15 +4,11 @@ import android.app.Application;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.marius.sportivebets.database.DataGenerator;
 import com.example.marius.sportivebets.database.connectionFactory.BetRoomDatabase;
 import com.example.marius.sportivebets.database.dao.UserDao;
 import com.example.marius.sportivebets.database.entity.User;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.function.Consumer;
 
 public class Repository {
     private UserDao userDao;
@@ -23,16 +19,16 @@ public class Repository {
     public Repository(Application application){
         db = BetRoomDatabase.getDatabase(application);
         userDao = db.userDao();
-        if(isEmpty)
-        {
-            isEmpty=false;
-            List<User> users=DataGenerator.generateUsers();
-            for(User user: users)
-            {
-                this.addUser(user);
-                Log.d("FFFFFFFFFFFFFFFFFFFF","USER INDRODUS");
-            }
-        }
+//        if(isEmpty)
+//        {
+//            isEmpty=false;
+//            List<User> users=DataGenerator.generateUsers();
+//            for(User user: users)
+//            {
+//                this.addUser(user);
+//                Log.d("FFFFFFFFFFFFFFFFFFFF","USER INDRODUS");
+//            }
+//        }
 
     }
 

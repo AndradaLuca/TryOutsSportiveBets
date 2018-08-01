@@ -7,32 +7,34 @@
 
     </data>
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/ConstraintLayoutmain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-        <android.support.design.widget.NavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="wrap_content"
+        tools:context=".MainActivity"
+        >
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp"
-            android:background="@color/colorPrimaryDark"
-            app:itemTextColor="@color/white"
-            app:menu="@menu/navigation_drower">
+            android:layout_marginBottom="56dp">
+
+            <android.support.design.widget.NavigationView
+                android:id="@+id/navigationView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/colorPrimaryDark"
+                app:itemTextColor="@color/white"
+                app:menu="@menu/navigation_drower">
 
 
-        </android.support.design.widget.NavigationView>
+            </android.support.design.widget.NavigationView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/blabla"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        </android.support.v4.widget.DrawerLayout>
 
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -43,9 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorAccent"
-                app:menu="@menu/botom_navigation_menu"
                 app:itemIconTint="@drawable/bottom_navigation_colors"
-                app:itemTextColor="@drawable/bottom_navigation_colors"/>
+                app:itemTextColor="@drawable/bottom_navigation_colors"
+                app:menu="@menu/botom_navigation_menu" />
         </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
