@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".home.HomeActivity" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_title">

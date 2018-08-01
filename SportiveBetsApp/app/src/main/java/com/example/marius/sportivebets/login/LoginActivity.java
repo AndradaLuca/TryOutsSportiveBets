@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.example.marius.sportivebets.MainActivity;
+import com.example.marius.sportivebets.home.HomeActivity;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.database.entity.User;
 import com.example.marius.sportivebets.databinding.ActivityLoginBinding;
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         loginViewModel.getLoginSuccess().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 intent.putExtra("username",user.getName());
                 startActivity(intent);
 

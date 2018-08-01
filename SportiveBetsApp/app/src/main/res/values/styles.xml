@@ -9,6 +9,7 @@
         <item name="colorControlNormal">#000000</item>
         <item name="actionBarTheme">@style/ActionBarTheme</item>
 
+
     </style>
 
     <style name="ActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
