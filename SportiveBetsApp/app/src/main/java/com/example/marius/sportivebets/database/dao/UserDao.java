@@ -18,6 +18,12 @@ public interface UserDao {
     @Query("select * From User where Email = :email")
     User findUserForSubmit(String email);
 
+    @Query("DELETE FROM User")
+    public void nukeTable();
+
+
+
+
 
 
 
