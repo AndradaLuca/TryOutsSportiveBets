@@ -7,13 +7,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
-import com.example.marius.sportivebets.home.HomeActivity;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.database.entity.User;
 import com.example.marius.sportivebets.databinding.ActivityLoginBinding;
 import com.example.marius.sportivebets.forgotPassword.ForgotPasswordActivity;
+import com.example.marius.sportivebets.home.HomeActivity;
 import com.example.marius.sportivebets.register.RegisterActivity;
 
 import es.dmoral.toasty.Toasty;
@@ -68,7 +67,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
     @Override
     public void forgotPassword() {
-        Toast.makeText(this, "ForgotPassword Pressed", LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
         startActivity(intent);
     }

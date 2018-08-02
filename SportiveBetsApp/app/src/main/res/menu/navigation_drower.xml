@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
-        <item android:title="Sports">
-            <menu>
-                <group android:checkableBehavior="single">
-                <item android:title="Football"
-                    android:icon="@drawable/soccer">
-                </item>
-                <item android:title="Tenis"
-                    android:icon="@drawable/tennisball">
-                </item>
-                <item android:title="Ping Pong"
-                    android:icon="@drawable/pingpong">
-                </item>
-                <item android:title="Basketball"
-                    android:icon="@drawable/basketball">
-                </item>
-                <item android:title="Cricket"
-                    android:icon="@drawable/cricket">
-                </item>
-                <item android:title="Badminton"
-                    android:icon="@drawable/badminton">
-                </item>
-                <item android:title="Rugby"
-                    android:icon="@drawable/americanfootball">
-                </item>
-                <item android:title="Bowling"
-                    android:icon="@drawable/bowling">
-                </item>
-                <item android:title="Chess"
-                    android:icon="@drawable/chess">
-                </item>
-                <item android:title="Golf"
-                    android:icon="@drawable/golf">
-                </item>
-                <item android:title="Hockey"
-                    android:icon="@drawable/hockey">
-                </item>
-                <item android:title="Box"
-                    android:icon="@drawable/boxing">
-                </item>
-                <item android:title="Voleyball"
-                    android:icon="@drawable/volleyball">
-                </item>
-                </group>
-            </menu>
-        </item>
-
+    <item android:title="Sports">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/soccer"
+                    android:title="Football"></item>
+                <item
+                    android:icon="@drawable/tennisball"
+                    android:title="Tenis"></item>
+                <item
+                    android:icon="@drawable/pingpong"
+                    android:title="Ping Pong"></item>
+                <item
+                    android:icon="@drawable/basketball"
+                    android:title="Basketball"></item>
+                <item
+                    android:icon="@drawable/cricket"
+                    android:title="Cricket"></item>
+                <item
+                    android:icon="@drawable/badminton"
+                    android:title="Badminton"></item>
+                <item
+                    android:icon="@drawable/americanfootball"
+                    android:title="Rugby"></item>
+                <item
+                    android:icon="@drawable/bowling"
+                    android:title="Bowling"></item>
+                <item
+                    android:icon="@drawable/chess"
+                    android:title="Chess"></item>
+                <item
+                    android:icon="@drawable/golf"
+                    android:title="Golf"></item>
+                <item
+                    android:icon="@drawable/hockey"
+                    android:title="Hockey"></item>
+                <item
+                    android:icon="@drawable/boxing"
+                    android:title="Box"></item>
+                <item
+                    android:icon="@drawable/volleyball"
+                    android:title="Voleyball"></item>
+            </group>
+        </menu>
+    </item>
 
 
 </menu>

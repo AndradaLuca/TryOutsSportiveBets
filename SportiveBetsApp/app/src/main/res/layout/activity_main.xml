@@ -21,12 +21,12 @@
             android:fitsSystemWindows="true">
 
 
-            <fragment
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/footbalFragment">
-                
-            </fragment>
+            <!--<fragment-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/footbalFragment">-->
+                <!---->
+            <!--</fragment>-->
 
 
             <android.support.design.widget.NavigationView
@@ -40,8 +40,30 @@
 
 
             </android.support.design.widget.NavigationView>
+            <FrameLayout
+                android:id="@+id/fragment_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp">
+
+            </FrameLayout>
+
+            <!--<android.support.v4.widget.DrawerLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" >-->
+                <!--<android.support.design.widget.NavigationView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--android:background="@color/colorPrimaryDark"-->
+                    <!--app:menu="@layout/fragment_bet_ticket"-->
+                    <!--/>-->
+
+            <!--</android.support.v4.widget.DrawerLayout>-->
+
 
         </android.support.v4.widget.DrawerLayout>
+
 
         <FrameLayout
             android:id="@+id/frameLayout"
@@ -52,6 +74,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottom_nav_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorAccent"
