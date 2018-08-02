@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ConstraintLayoutmain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".home.HomeActivity"
-        >
+        tools:context=".home.HomeActivity">
+        <!--<android.support.v4.widget.DrawerLayout-->
+        <!--android:id="@+id/drawerLayoutRight"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginBottom="56dp">-->
+
+        <!--<android.support.design.widget.NavigationView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--app:itemTextColor="@color/white"-->
+        <!--app:menu="@menu/navigation_drower" />-->
+
+
+        <!--</android.support.v4.widget.DrawerLayout>-->
+
 
         <android.support.v4.widget.DrawerLayout
             android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp"
-            android:fitsSystemWindows="true">
+            android:layout_marginBottom="56dp">
+            <FrameLayout
+                android:id="@+id/fragment_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
 
 
-            <!--<fragment-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/footbalFragment">-->
-                <!---->
-            <!--</fragment>-->
-
+            <android.support.design.widget.NavigationView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/colorPrimary"
+                app:itemTextColor="@color/white"
+                app:menu="@menu/navigation_drower" />
 
             <android.support.design.widget.NavigationView
                 android:id="@+id/navigationView"
@@ -36,34 +58,20 @@
                 android:layout_gravity="start"
                 android:background="@color/colorPrimaryDark"
                 app:itemTextColor="@color/white"
-                app:menu="@menu/navigation_drower">
+                app:menu="@menu/navigation_drower" />
 
 
-            </android.support.design.widget.NavigationView>
-            <FrameLayout
-                android:id="@+id/fragment_holder"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="56dp">
+            <!--<LinearLayout-->
+            <!--android:orientation="vertical"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:id="@+id/myTicketFragment"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="end"></LinearLayout>-->
 
-            </FrameLayout>
-
-            <!--<android.support.v4.widget.DrawerLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent" >-->
-                <!--<android.support.design.widget.NavigationView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_gravity="end"-->
-                    <!--android:background="@color/colorPrimaryDark"-->
-                    <!--app:menu="@layout/fragment_bet_ticket"-->
-                    <!--/>-->
-
-            <!--</android.support.v4.widget.DrawerLayout>-->
 
 
         </android.support.v4.widget.DrawerLayout>
-
 
         <FrameLayout
             android:id="@+id/frameLayout"
@@ -71,7 +79,8 @@
             android:layout_height="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drawerLayout">
 
             <android.support.design.widget.BottomNavigationView
                 android:id="@+id/bottom_nav_view"

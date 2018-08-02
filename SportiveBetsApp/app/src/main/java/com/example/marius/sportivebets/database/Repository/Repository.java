@@ -22,7 +22,7 @@ public class Repository {
 //        if(isEmpty)
 //        {
 //            isEmpty=false;
-//            List<User> users=DataGenerator.generateUsers();
+//            List<User> users= DataGenerator.generateUsers();
 //            for(User user: users)
 //            {
 //                this.addUser(user);
@@ -62,14 +62,12 @@ public class Repository {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        System.out.println("Function "+user);
         return user;
     }
     public class FindUser extends AsyncTask<String, Void, User> {
         @Override
         protected User doInBackground(String... strings) {
             user = userDao.findByUsernameAndPAssword(strings[0]+"", strings[1]+"");
-            System.out.println("   Asynk   "+user);
             return user;
         }
     }
