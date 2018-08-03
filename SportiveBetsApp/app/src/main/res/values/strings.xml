@@ -29,5 +29,22 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <string-array name="Sports">
+        <item>Football</item>
+        <item>Tenis</item>
+        <item>Ping Pong</item>
+        <item>Basketball</item>
+        <item>Cricket</item>
+        <item>Badminton</item>
+        <item>Rugby</item>
+        <item>Bowling</item>
+        <item>Chess</item>
+        <item>Golf</item>
+        <item>Hockey</item>
+        <item>Box</item>
+        <item>Volleyball</item>
+
+    </string-array>
+
 
 </resources>
