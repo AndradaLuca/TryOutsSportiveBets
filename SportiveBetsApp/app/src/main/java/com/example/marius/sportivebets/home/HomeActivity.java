@@ -66,6 +66,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,new HomeFragment()).commit();
+
 
         mainBinding.bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
