@@ -9,12 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.marius.sportivebets.R;
+import com.example.marius.sportivebets.databinding.RawLayoutBinding;
 
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecyclerViewHolder> {
 
-
+    RawLayoutBinding rawLayoutBinding;
     private List<String> sportList;
     private List<Integer> images;
 

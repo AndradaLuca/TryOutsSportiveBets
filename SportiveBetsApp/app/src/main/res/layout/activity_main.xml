@@ -19,9 +19,18 @@
             android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="56dp"
 
             android:fitsSystemWindows="true">
 
+
+            <FrameLayout
+                android:id="@+id/fragment_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp">
+
+            </FrameLayout>
 
             <LinearLayout
 
@@ -49,13 +58,7 @@
         </android.support.v4.widget.DrawerLayout>
 
 
-        <FrameLayout
-            android:id="@+id/fragment_holder"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="56dp">
 
-        </FrameLayout>
 
 
         <FrameLayout
