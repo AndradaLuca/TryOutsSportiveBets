@@ -1,7 +1,6 @@
 package com.example.marius.sportivebets.home;
 
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.RawLayoutBinding;
@@ -20,16 +17,15 @@ import com.example.marius.sportivebets.home.sport_fragments.TenisFragment;
 
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecyclerViewHolder> {
+public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapter.RecyclerViewHolder> {
 
 
-    private List<String> sportList;
-    private List<Integer> images;
+    private List<MenuItemsModel> items;
+    private LayoutInflater layoutInflater;
 
 
-    public RecycleAdapter(List<String> sportList, List<Integer> images) {
-        this.sportList = sportList;
-        this.images = images;
+    public HomeRecyclerAdapter(List<MenuItemsModel> items) {
+        this.items=items;
 
 
     }
@@ -37,40 +33,62 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.Recycler
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.raw_layout, parent, false);
-        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view);
-        return recyclerViewHolder;
+
+
+        if(layoutInflater==null)
+        {
+            layoutInflater=LayoutInflater.from(parent.getContext());
+        }
+
+        RawLayoutBinding rawLayoutBinding = RawLayoutBinding.inflate(layoutInflater,parent,false);
+
+        return new RecyclerViewHolder(rawLayoutBinding);
+      /*  View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.raw_layout, parent, false);
+        return new RecyclerViewHolder(view);*/
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.textView.setText(sportList.get(position));
-        holder.imageView.setImageResource(images.get(position));
+
+     /*   MenuItem menuItem=items.get(position);
+        holder.textView.setText(menuItem.getName());
+        holder.imageView.setImageResource(menuItem.getIcon());*/
+
+        MenuItemsModel menuItemsModel=items.get(position);
+        holder.bind(menuItemsModel);
 
 
     }
 
     @Override
     public int getItemCount() {
-        return sportList.size();
+        return items.size();
     }
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
         private RawLayoutBinding rawLayoutBinding;
-        private TextView textView;
-        private ImageView imageView;
-        private Context context;
 
 
-        private RecyclerViewHolder(View itemView) {
-            super(itemView);
 
-            context = itemView.getContext();
-            textView = itemView.findViewById(R.id.tx_item);
-            imageView = itemView.findViewById(R.id.imageView);
+        public RecyclerViewHolder(RawLayoutBinding rawLayoutBinding) {
+            super(rawLayoutBinding.getRoot());
+            this.rawLayoutBinding=rawLayoutBinding;
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
 
+        }
+
+        public void bind(MenuItemsModel menuItemsModel)
+        {
+            this.rawLayoutBinding.setMenuView(menuItemsModel);
+            this.rawLayoutBinding.imageView.setImageResource(menuItemsModel.icon);
+        }
+
+        public RawLayoutBinding getRawLayoutBinding()
+        {
+            return this.rawLayoutBinding;
         }
 
         @Override

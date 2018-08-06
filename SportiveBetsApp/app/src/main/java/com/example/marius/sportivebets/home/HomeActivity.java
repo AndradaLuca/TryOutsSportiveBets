@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.marius.sportivebets.R;
@@ -22,21 +21,16 @@ import com.example.marius.sportivebets.home.bottomNavFragments.MyBetsFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.WithdrawMoneyFragment;
 import com.example.marius.sportivebets.utils.Constants;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class HomeActivity extends AppCompatActivity {
 
 
-    Toolbar toolbar;
+
     ActivityMainBinding mainBinding;
     RecyclerView recyclerView;
     DrawerLayout drawerLayout;
     RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    List<String> sportsList = new ArrayList<>();
     ActionBarDrawerToggle mToogle;
+
 
 
     @Override
@@ -45,18 +39,11 @@ public class HomeActivity extends AppCompatActivity {
 
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         recyclerView = mainBinding.recycleView;
-        layoutManager = new LinearLayoutManager(this);
-
-        recyclerView.setLayoutManager(layoutManager);
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         drawerLayout = mainBinding.drawerLayout;
         recyclerView.setHasFixedSize(false);
 
-        String[] items = getResources().getStringArray(R.array.Sports);
-        sportsList.addAll(Arrays.asList(items));
-
-
-        adapter = new RecycleAdapter(sportsList, Constants.images);
+        adapter = new HomeRecyclerAdapter(Constants.menuItems);
         recyclerView.setAdapter(adapter);
 
         mToogle = new ActionBarDrawerToggle(this,mainBinding.drawerLayout,R.string.open,R.string.close);
