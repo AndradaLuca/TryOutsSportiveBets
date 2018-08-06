@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +20,7 @@ import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoneyFragm
 import com.example.marius.sportivebets.home.bottomNavFragments.HomeFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.MyBetsFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.WithdrawMoneyFragment;
+import com.example.marius.sportivebets.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +36,6 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
     List<String> sportsList = new ArrayList<>();
-    List<Integer> images = Arrays.asList(R.drawable.soccer, R.drawable.tennisball, R.drawable.pingpong, R.drawable.basketball, R.drawable.cricket, R.drawable.badminton, R.drawable.americanfootball, R.drawable.bowling, R.drawable.chess, R.drawable.golf, R.drawable.hockey, R.drawable.boxing, R.drawable.volleyball);
     ActionBarDrawerToggle mToogle;
 
 
@@ -57,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         sportsList.addAll(Arrays.asList(items));
 
 
-        adapter = new RecycleAdapter(sportsList, images);
+        adapter = new RecycleAdapter(sportsList, Constants.images);
         recyclerView.setAdapter(adapter);
 
         mToogle = new ActionBarDrawerToggle(this,mainBinding.drawerLayout,R.string.open,R.string.close);

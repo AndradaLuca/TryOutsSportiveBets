@@ -11,7 +11,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/transparencyBlack">
+        android:background="@color/transparencyBlack"
+        android:id="@+id/parent_layout_recyclerView">
 
         <TextView
             android:id="@+id/tx_item"
