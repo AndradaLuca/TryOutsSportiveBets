@@ -1,4 +1,4 @@
-package com.example.marius.sportivebets.home.sport_fragments;
+package com.example.marius.sportivebets.home.sport_fragments.football;
 
 
 import android.os.Bundle;
