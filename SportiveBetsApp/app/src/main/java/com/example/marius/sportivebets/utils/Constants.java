@@ -3,6 +3,7 @@ package com.example.marius.sportivebets.utils;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.home.MenuItem;
 import com.example.marius.sportivebets.home.MenuItemsModel;
+import com.example.marius.sportivebets.home.sport_fragments.football.ItemModel;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,12 @@ public class Constants {
             new MenuItemsModel(cricketItem),new MenuItemsModel(badmintonItem),new MenuItemsModel(rugbyItem),
             new MenuItemsModel(bowlingItem),new MenuItemsModel(chessItem),new MenuItemsModel(golfItem),
             new MenuItemsModel(hockeyItem),new MenuItemsModel(boxItem),new MenuItemsModel(volleyballItem));
+
+
+    public static final List<ItemModel> footbalItems= Arrays.asList(new ItemModel("Romania - Liga 1"),
+                new ItemModel("Romania Cup"), new ItemModel("Anglia - Premier League"), new ItemModel("Spain Super Cup"),
+            new ItemModel("UEFA Super Cup"), new ItemModel("Germany Super Cup"), new ItemModel("International Champions Cup"),
+            new ItemModel("Champions League Qualifying"),new ItemModel("Ligi de top"));
 
 
 }
