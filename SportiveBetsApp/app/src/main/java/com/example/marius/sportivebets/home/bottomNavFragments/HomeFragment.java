@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.FragmentHomeBinding;
 
+import java.util.Objects;
+
 public class HomeFragment extends Fragment {
     @Nullable
     @Override
@@ -20,9 +22,12 @@ public class HomeFragment extends Fragment {
         FragmentHomeBinding homeBinding;
         homeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
         View view = homeBinding.getRoot();
-        String ammount = getArguments().getString("ammount");
-        String CNP = getArguments().getString("CNP");
-        homeBinding.textV.setText("CNP: "+CNP+" \n"+"Ammount: "+ammount);
+        if (getArguments() != null) {
+            Double ammount = getArguments().getDouble("ammount");
+            String CNP = getArguments().getString("CNP");
+            homeBinding.textV.setText("CNP: "+CNP+" \n"+"Ammount: "+ammount);
+        }
+
         return view;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.marius.sportivebets.home;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ public class HomeActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     RecyclerView.Adapter adapter;
     ActionBarDrawerToggle mToogle;
+    private HomeViewModel homeViewModel;
+    String CNP,email,password;
+    Double ammount;
 
 
 
@@ -38,6 +42,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        CNP = getIntent().getStringExtra("CNP");
+        email = getIntent().getStringExtra("email");
+        password = getIntent().getStringExtra("password");
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         recyclerView = mainBinding.recycleView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,12 +61,13 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,new HomeFragment()).commit();
+
         Bundle bundle = new Bundle();
-        bundle.putString("ammount", getIntent().getStringExtra("ammount"));
+        bundle.putDouble("ammount", getIntent().getDoubleExtra("ammount",0.0));
         bundle.putString("CNP", getIntent().getStringExtra("CNP"));
         HomeFragment homeFragmentObject = new HomeFragment();
         homeFragmentObject.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,homeFragmentObject).commit();
 
 
         mainBinding.bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -69,18 +77,20 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch(item.getItemId()){
                     case R.id.home_menu:
-                        selectedFragment = new HomeFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+                        initViewModel();
                         Bundle bundle = new Bundle();
-                        bundle.putString("ammount", getIntent().getStringExtra("ammount"));
-                        bundle.putString("CNP", getIntent().getStringExtra("CNP"));
+                        bundle.putDouble("ammount", ammount);
+                        bundle.putString("CNP", CNP);
                         HomeFragment fragobj = new HomeFragment();
                         fragobj.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,fragobj).commit();
                         break;
 
                     case R.id.deposit_menu:
                         Intent intent = new Intent(HomeActivity.this, DepositMoneyActivity.class);
-                        intent.putExtra("CNP",getIntent().getStringExtra("CNP"));
+                        intent.putExtra("CNP",CNP);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
                         startActivity(intent);
                         break;
                     case R.id.withdraw_menu:
@@ -100,11 +110,14 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
-                }
+    }
 
 
 
-
+    private void initViewModel(){
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+        ammount = homeViewModel.getBalance(email,password);
+    }
 
 
 

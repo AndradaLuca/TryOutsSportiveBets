@@ -36,6 +36,10 @@ dependencies {
     implementation 'com.mindorks:placeholderview:0.2.7'
 //    implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
     implementation 'com.braintreepayments:card-form:3.1.1'
+    // for sending mail
+    implementation files('C:\\NTT Data\\New folder\\SportiveBets\\TryOutsSportiveBets\\TryOutsSportiveBets\\SportiveBetsApp\\app\\src\\main\\java\\com\\example\\marius\\sportivebets\\libs\\activation.jar')
+    implementation files('C:\\NTT Data\\New folder\\SportiveBets\\TryOutsSportiveBets\\TryOutsSportiveBets\\SportiveBetsApp\\app\\src\\main\\java\\com\\example\\marius\\sportivebets\\libs\\additionnal.jar')
+    implementation files('C:\\NTT Data\\New folder\\SportiveBets\\TryOutsSportiveBets\\TryOutsSportiveBets\\SportiveBetsApp\\app\\src\\main\\java\\com\\example\\marius\\sportivebets\\libs\\mail.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

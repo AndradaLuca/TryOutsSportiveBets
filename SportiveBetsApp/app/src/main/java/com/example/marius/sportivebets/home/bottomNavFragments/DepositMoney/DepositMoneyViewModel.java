@@ -33,9 +33,9 @@ public class DepositMoneyViewModel extends AndroidViewModel {
         return depositFailed;
     }
 
-    protected void onConfirmDepositClick(String ammount, String CNP){
-
-        repository.updateBalance(CNP,ammount);
+    protected void onConfirmDepositClick(String ammount, String CNP,String email,String password){
+        Double updateAmmount = Double.parseDouble(ammount)+ repository.findUser(email,password).getMouney();
+        repository.updateBalance(CNP,updateAmmount.toString());
         depositSuccess.postValue("Deposit succesfuly !!!");
     }
 

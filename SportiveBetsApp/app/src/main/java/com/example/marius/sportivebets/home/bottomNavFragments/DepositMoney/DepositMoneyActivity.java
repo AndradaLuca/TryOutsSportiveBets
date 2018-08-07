@@ -34,6 +34,10 @@ public class DepositMoneyActivity extends AppCompatActivity implements IDepositM
                 .mobileNumberRequired(false)
                 .setup(DepositMoneyActivity.this);
         depositMoneyBinding.cardForm.getCvvEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+        depositMoneyBinding.cardForm.getCardEditText().setText("5539110002475800");
+        depositMoneyBinding.cardForm.getExpirationDateEditText().setText("102018");
+        depositMoneyBinding.cardForm.getCvvEditText().setText("455");
+        depositMoneyBinding.howMuchTV.setText("235.68");
         depositMoneyBinding.setIDepositMoney(this);
         initViewModel();
     }
@@ -68,12 +72,11 @@ public class DepositMoneyActivity extends AppCompatActivity implements IDepositM
             alertBuilder.setMessage("Card number: " + depositMoneyBinding.cardForm.getCardNumber() + "\n" +
                     "Card expiry date: " + depositMoneyBinding.cardForm.getExpirationDateEditText().getText().toString() + "\n" +
                     "Card CVV: " + depositMoneyBinding.cardForm.getCvv() + "\n" +
-                    "Phone number: " + depositMoneyBinding.cardForm.getMobileNumber()+"\n"+
                     "Sum: "+ depositMoneyBinding.howMuchTV.getText().toString());
             alertBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    depositMoneyViewModel.onConfirmDepositClick(depositMoneyBinding.howMuchTV.getText().toString(),getIntent().getStringExtra("CNP"));
+                    depositMoneyViewModel.onConfirmDepositClick(depositMoneyBinding.howMuchTV.getText().toString(),getIntent().getStringExtra("CNP"),getIntent().getStringExtra("email"),getIntent().getStringExtra("password"));
                     dialogInterface.dismiss();
                 }
             });
