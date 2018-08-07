@@ -41,7 +41,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
             @Override
             public void onChanged(@Nullable User user) {
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                intent.putExtra("username",user.getName());
+                intent.putExtra("CNP",user.getCNP());
+                intent.putExtra("ammount",user.getMouney());
                 startActivity(intent);
 
             }

@@ -15,8 +15,12 @@ public interface UserDao {
 
     @Query("select * From User where Email = :email AND Password = :pass")
     User findByUsernameAndPAssword(String email, String pass);
+
     @Query("select * From User where Email = :email")
     User findUserForSubmit(String email);
+
+    @Query("UPDATE User SET Ammount = :ammount  WHERE CNP = :CNP")
+    void updateAmaunt(String CNP, Double ammount);
 
     @Query("DELETE FROM User")
     public void nukeTable();

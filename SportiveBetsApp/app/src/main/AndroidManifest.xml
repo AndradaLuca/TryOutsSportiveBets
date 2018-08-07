@@ -33,6 +33,8 @@
             android:label="Register"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".forgotPassword.ForgotPasswordActivity" />
+        <activity android:name=".home.bottomNavFragments.DepositMoney.DepositMoneyActivity"
+            android:label="Deposit Money"/>
     </application>
 
 </manifest>

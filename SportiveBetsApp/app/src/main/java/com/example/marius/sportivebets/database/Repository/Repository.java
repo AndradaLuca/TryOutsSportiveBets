@@ -48,6 +48,33 @@ public class Repository {
 
 
 
+
+
+    public User updateBalance(String email,String ammount) {
+        try {
+            new UpdateBalance().execute(new String[]{email,ammount}).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Function "+email+"       "+ammount);
+        return user;
+    }
+    public class UpdateBalance extends AsyncTask<String, Void, Void> {
+        @Override
+        protected Void doInBackground(String... strings) {
+            userDao.updateAmaunt(strings[0]+"",Double.parseDouble(strings[1]));
+            System.out.println("   Asynk   "+strings[0]+"       "+strings[1]);
+            return null;
+        }
+    }
+
+
+
+
+
+
     public User findUserForSubmit(String email) {
         try {
             user = new FindUserForSubmit().execute(new String[]{email}).get();
@@ -76,14 +103,12 @@ public class Repository {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        System.out.println("Function "+user);
         return user;
     }
     public class FindUser extends AsyncTask<String, Void, User> {
         @Override
         protected User doInBackground(String... strings) {
             user = userDao.findByUsernameAndPAssword(strings[0]+"", strings[1]+"");
-            System.out.println("   Asynk   "+user);
             return user;
         }
     }

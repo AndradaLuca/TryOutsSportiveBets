@@ -1,5 +1,6 @@
 package com.example.marius.sportivebets.home;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +17,7 @@ import android.view.MenuItem;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.ActivityMainBinding;
 import com.example.marius.sportivebets.home.bottomNavFragments.BetTicketFragment;
-import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoneyFragment;
+import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyActivity;
 import com.example.marius.sportivebets.home.bottomNavFragments.HomeFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.MyBetsFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.WithdrawMoneyFragment;
@@ -67,6 +68,11 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,new HomeFragment()).commit();
+        Bundle bundle = new Bundle();
+        bundle.putString("ammount", getIntent().getStringExtra("ammount"));
+        bundle.putString("CNP", getIntent().getStringExtra("CNP"));
+        HomeFragment homeFragmentObject = new HomeFragment();
+        homeFragmentObject.setArguments(bundle);
 
 
         mainBinding.bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,26 +83,43 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.home_menu:
                         selectedFragment = new HomeFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("ammount", getIntent().getStringExtra("ammount"));
+                        bundle.putString("CNP", getIntent().getStringExtra("CNP"));
+                        HomeFragment fragobj = new HomeFragment();
+                        fragobj.setArguments(bundle);
                         break;
 
                     case R.id.deposit_menu:
-                            selectedFragment = new DepositMoneyFragment();
+                        Intent intent = new Intent(HomeActivity.this, DepositMoneyActivity.class);
+                        intent.putExtra("CNP",getIntent().getStringExtra("CNP"));
+                        startActivity(intent);
                         break;
                     case R.id.withdraw_menu:
                         selectedFragment = new WithdrawMoneyFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
                         break;
                     case R.id.MyBets_menu:
                         selectedFragment = new MyBetsFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
                         break;
                     case R.id.betTicket_menu:
                         selectedFragment = new BetTicketFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
                        break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+
                 return true;
             }
         });
-    }
+                }
+
+
+
+
+
+
 
 
     @Override
