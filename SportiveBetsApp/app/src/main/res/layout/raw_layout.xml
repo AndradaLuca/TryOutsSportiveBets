@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="menuView"
+            type="com.example.marius.sportivebets.home.MenuItemsModel">
+
+        </variable>
 
     </data>
 
@@ -11,7 +16,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/transparencyBlack">
+        android:background="@color/transparencyBlack"
+        android:id="@+id/parent_layout_recyclerView">
 
         <TextView
             android:id="@+id/tx_item"
@@ -21,7 +27,7 @@
             android:layout_marginStart="66dp"
             android:paddingEnd="50dp"
             android:gravity="center_vertical"
-            android:text="Sports"
+            android:text="@{menuView.title}"
             android:textColor="@color/white"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +49,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_check_white_48dp" />
+             />
 
 
     </android.support.constraint.ConstraintLayout>
