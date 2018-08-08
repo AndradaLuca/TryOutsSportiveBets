@@ -1,29 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+    </data>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.sport_fragments.football.FootballFragment">
+    tools:context=".home.sport_fragments.football.FootballFragment"
+    >
 
 
+
+
+
+    <LinearLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/light_gray"
+
+
+        >
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTopsLeague"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="251dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginLeft="124dp"
-        android:layout_marginRight="130dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="231dp"
-        android:text="Football"
-
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="@dimen/D8dp"
+        android:layout_marginStart="@dimen/D8dp"
+        android:layout_marginTop="@dimen/D16dp"
+        android:background="@color/light_gray"
+        android:text="@string/top_leagues"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="@dimen/D16dp"
+            android:id="@+id/recycleViewFootbal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
+</layout>
