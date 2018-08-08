@@ -4,9 +4,11 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.example.marius.sportivebets.database.Repository.Repository;
 import com.example.marius.sportivebets.utils.Validation;
+import com.example.marius.sportivebets.utils.mailHelpers.GMailSender;
 
 public class ForgotPasswordViewModel extends AndroidViewModel {
 
@@ -32,6 +34,21 @@ public class ForgotPasswordViewModel extends AndroidViewModel {
         }else {
             if (repository.findUserForSubmit(email) != null){
                 submitSuccess.postValue("Submitted succesfully");
+                Thread sender = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            GMailSender sender = new GMailSender("sportivebets@gmail.com", "sportiveBetsA&M");
+                            sender.sendMail("Recover Password",
+                                    "the new password is Bla Bla Bla",
+                                    "SportiveBets",
+                                    email);
+                        } catch (Exception e) {
+                            Log.e("mylog", "Error: " + e.getMessage());
+                        }
+                    }
+                });
+                sender.start();
                 // TODO implement sending email to user with the new password
             }
             else{
