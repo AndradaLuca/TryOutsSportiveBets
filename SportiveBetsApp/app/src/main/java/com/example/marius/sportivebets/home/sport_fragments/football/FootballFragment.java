@@ -16,6 +16,9 @@ import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.FragmentFootball2Binding;
 import com.example.marius.sportivebets.utils.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FootballFragment extends Fragment {
 
     private FragmentFootball2Binding fragmentFootball2Binding;
@@ -32,10 +35,12 @@ public class FootballFragment extends Fragment {
         recyclerView=rootView.findViewById(R.id.recycleViewFootbal);
       //  recyclerView=fragmentFootball2Binding.recycleViewFootbal;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter= new FootbalAdapter(Constants.footbalItems);
+        adapter= new FootbalAdapter(Constants.leagueTitles);
         recyclerView.setAdapter(adapter);
 
         return rootView;
     }
+
+
 
 }

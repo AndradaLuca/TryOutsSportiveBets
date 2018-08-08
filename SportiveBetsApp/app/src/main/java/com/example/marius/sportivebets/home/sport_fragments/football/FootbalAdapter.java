@@ -5,24 +5,30 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
+import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
+import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
+import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
+import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 
 import java.util.List;
 
-public class FootbalAdapter extends RecyclerView.Adapter<FootbalAdapter.FootballViewHolder> {
+public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter.FootballViewHolder, FootbalAdapter.GamesHolder> {
 
-    private List<ItemModel> footballItems;
     private LayoutInflater layoutInflater;
+    private LayoutInflater layoutInflaterChild;
 
-    public FootbalAdapter(List<ItemModel> footballItems) {
-        this.footballItems = footballItems;
-
+    public FootbalAdapter(List<? extends ExpandableGroup> groups) {
+        super(groups);
     }
 
-    @NonNull
     @Override
-    public FootballViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FootballViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
 
         if (layoutInflater == null) {
             layoutInflater = LayoutInflater.from(parent.getContext());
@@ -33,28 +39,43 @@ public class FootbalAdapter extends RecyclerView.Adapter<FootbalAdapter.Football
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FootballViewHolder holder, int position) {
-        ItemModel itemModel= footballItems.get(position);
-        holder.bind(itemModel);
-
+    public GamesHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
+        if(layoutInflaterChild==null)
+        {
+            layoutInflaterChild=LayoutInflater.from(parent.getContext());
+        }
+        ListItemGamesBinding listItemGamesBinding=ListItemGamesBinding.inflate(layoutInflaterChild,parent,false);
+        return new GamesHolder(listItemGamesBinding);
     }
 
     @Override
-    public int getItemCount() {
-        return footballItems.size();
+    public void onBindChildViewHolder(GamesHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
+
+       
+        holder.bind(new GameModel((Game) group.getItems().get(childIndex)));
     }
 
-    public static class FootballViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public void onBindGroupViewHolder(FootballViewHolder holder, int flatPosition, ExpandableGroup group) {
+
+        holder.bind(new LeagueTitleModel(group.getTitle()));
+
+    }
+
+
+    public static class FootballViewHolder extends GroupViewHolder {
 
         private FootballLeaguesLayoutBinding footballLeaguesLayoutBinding;
 
-        public FootballViewHolder(FootballLeaguesLayoutBinding footballLeaguesLayoutBinding) {
+
+        private FootballViewHolder(FootballLeaguesLayoutBinding footballLeaguesLayoutBinding) {
             super(footballLeaguesLayoutBinding.getRoot());
             this.footballLeaguesLayoutBinding = footballLeaguesLayoutBinding;
         }
 
-        public void bind(ItemModel itemModel) {
-            this.footballLeaguesLayoutBinding.setItemModel(itemModel);
+
+        public void bind(LeagueTitleModel leagueTitleModel) {
+            footballLeaguesLayoutBinding.setLeagueTitleModel(leagueTitleModel);
 
         }
 
@@ -62,6 +83,25 @@ public class FootbalAdapter extends RecyclerView.Adapter<FootbalAdapter.Football
             return footballLeaguesLayoutBinding;
         }
     }
+
+    public static class GamesHolder extends ChildViewHolder {
+
+        private ListItemGamesBinding listItemGamesBinding;
+
+        public GamesHolder(ListItemGamesBinding listItemGamesBinding) {
+            super(listItemGamesBinding.getRoot());
+            this.listItemGamesBinding = listItemGamesBinding;
+
+        }
+
+
+        public void bind(GameModel gameModel) {
+            listItemGamesBinding.setGameModel(gameModel);
+
+        }
+
+    }
+
 }
 
 

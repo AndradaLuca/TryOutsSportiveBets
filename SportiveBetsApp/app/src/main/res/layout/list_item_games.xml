@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="gameModel"
+            type="com.example.marius.sportivebets.home.sport_fragments.football.GameModel">
+
+        </variable>
+    </data>
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray">
+
+    <TextView
+        android:id="@+id/listGames"
+        android:layout_width="0dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@{gameModel.title}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonWinFirstTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:textSize="6sp"
+        android:text="@{gameModel.firstButton}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDraw"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDraw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
+        android:textSize="8sp"
+        android:text="@{gameModel.drawButton}"
+        app:layout_constraintEnd_toStartOf="@+id/buttonWinSecondTeam"
+        app:layout_constraintStart_toEndOf="@+id/buttonWinFirstTeam"
+        app:layout_constraintTop_toBottomOf="@+id/listGames" />
+
+    <Button
+        android:id="@+id/buttonWinSecondTeam"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textSize="6sp"
+        android:text="@{gameModel.secondButton}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDraw"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWinFirstTeam" />
+
+</android.support.constraint.ConstraintLayout>
+</layout>

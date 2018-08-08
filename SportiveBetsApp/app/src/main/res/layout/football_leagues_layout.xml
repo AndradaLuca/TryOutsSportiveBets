@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="itemModel"
-            type="com.example.marius.sportivebets.home.sport_fragments.football.ItemModel">
+            name="leagueTitleModel"
+            type="com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitleModel">
 
         </variable>
     </data>
@@ -27,7 +27,7 @@
         android:layout_marginTop="12dp"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="@{itemModel.title}"
+        android:text="@{leagueTitleModel.title}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -36,11 +36,11 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="6dp"
+        android:layout_width="3dp"
         android:layout_height="32dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
