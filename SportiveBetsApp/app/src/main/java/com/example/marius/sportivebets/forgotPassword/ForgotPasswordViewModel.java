@@ -33,7 +33,6 @@ public class ForgotPasswordViewModel extends AndroidViewModel {
             submitFailed.postValue("Empty e-mail !!!");
         }else {
             if (repository.findUserForSubmit(email) != null){
-                submitSuccess.postValue("Submitted succesfully");
                 Thread sender = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -43,6 +42,7 @@ public class ForgotPasswordViewModel extends AndroidViewModel {
                                     "the new password is Bla Bla Bla",
                                     "SportiveBets",
                                     email);
+                            submitSuccess.postValue("Submitted succesfully");
                         } catch (Exception e) {
                             Log.e("mylog", "Error: " + e.getMessage());
                         }
