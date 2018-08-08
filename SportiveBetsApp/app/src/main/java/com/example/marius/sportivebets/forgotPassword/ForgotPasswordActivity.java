@@ -46,11 +46,6 @@ public class ForgotPasswordActivity extends AppCompatActivity implements IForgot
     }
     @Override
     public void onSubmitClick() {
-        final ProgressDialog dialog = new ProgressDialog(ForgotPasswordActivity.this);
-        dialog.setTitle("Sending Email");
-        dialog.setMessage("Please wait");
-        dialog.show();
-        forgotPasswordViewModel.onSubmitClick(forgotPasswordBinding.editText.getText().toString());
-        dialog.dismiss();
+        forgotPasswordViewModel.onSubmitClick(forgotPasswordBinding.editText.getText().toString(),ForgotPasswordActivity.this);
     }
 }

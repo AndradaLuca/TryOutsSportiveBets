@@ -42,10 +42,15 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         CNP = getIntent().getStringExtra("CNP");
         email = getIntent().getStringExtra("email");
         password = getIntent().getStringExtra("password");
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainBinding.bottomNavView.enableAnimation(true);
+        mainBinding.bottomNavView.enableItemShiftingMode(false);
+        mainBinding.bottomNavView.enableShiftingMode(false);
+        mainBinding.bottomNavView.setTextVisibility(false);
         recyclerView = mainBinding.recycleView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         drawerLayout = mainBinding.drawerLayout;
@@ -130,4 +135,8 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }
