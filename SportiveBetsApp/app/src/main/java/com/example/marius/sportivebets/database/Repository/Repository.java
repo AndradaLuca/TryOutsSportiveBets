@@ -47,6 +47,27 @@ public class Repository {
     }
 
 
+    public User updatePassword(String email,String newPassword) {
+        try {
+            new UpdatePassword().execute(new String[]{email,newPassword}).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Function "+email+"       "+newPassword);
+        return user;
+    }
+    public class UpdatePassword extends AsyncTask<String, Void, Void> {
+        @Override
+        protected Void doInBackground(String... strings) {
+            userDao.updatePassword(strings[0]+"",strings[1]+"");
+            System.out.println("   Asynk   "+strings[0]+"       "+strings[1]);
+            return null;
+        }
+    }
+
+
 
 
 

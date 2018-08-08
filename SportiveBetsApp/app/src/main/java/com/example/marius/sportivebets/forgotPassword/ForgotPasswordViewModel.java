@@ -10,6 +10,8 @@ import com.example.marius.sportivebets.database.Repository.Repository;
 import com.example.marius.sportivebets.utils.Validation;
 import com.example.marius.sportivebets.utils.mailHelpers.GMailSender;
 
+import java.util.Random;
+
 public class ForgotPasswordViewModel extends AndroidViewModel {
 
     private Repository repository;
@@ -33,13 +35,21 @@ public class ForgotPasswordViewModel extends AndroidViewModel {
             submitFailed.postValue("Empty e-mail !!!");
         }else {
             if (repository.findUserForSubmit(email) != null){
+                final String DATA = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz|!£$%&/=@#";
+                Random RANDOM = new Random();
+                StringBuilder sb = new StringBuilder(10);
+                for (int i = 0; i < 10; i++) {
+                    sb.append(DATA.charAt(RANDOM.nextInt(DATA.length())));
+                }
+                String newPassword = sb.toString();
+                repository.updatePassword(email,newPassword);
                 Thread sender = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             GMailSender sender = new GMailSender("sportivebets@gmail.com", "sportiveBetsA&M");
                             sender.sendMail("Recover Password",
-                                    "the new password is Bla Bla Bla",
+                                    "The new password is: "+newPassword,
                                     "SportiveBets",
                                     email);
                             submitSuccess.postValue("Submitted succesfully");

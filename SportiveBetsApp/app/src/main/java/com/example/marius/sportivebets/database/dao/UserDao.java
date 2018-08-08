@@ -22,6 +22,9 @@ public interface UserDao {
     @Query("UPDATE User SET Ammount = :ammount  WHERE CNP = :CNP")
     void updateAmaunt(String CNP, Double ammount);
 
+    @Query("UPDATE User SET password = :newPassword  WHERE email = :email")
+    void updatePassword(String email, String newPassword);
+
     @Query("DELETE FROM User")
     public void nukeTable();
 
