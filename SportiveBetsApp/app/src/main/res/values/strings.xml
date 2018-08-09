@@ -17,7 +17,7 @@
     <string name="Username">Username</string>
     <string name="egisterNow">Register now!</string>
     <string name="enter_e_mail_address">Enter e-mail address</string>
-    <string name="enter_your_account_e_mail_and_a_new_password_will_be_sent_at_the_e_mail_address">Enter your account e-mail and the password will be sent at the e-mail address</string>
+    <string name="enter_your_account_e_mail_and_a_new_password_will_be_sent_at_the_e_mail_address">Enter your account e-mail and the new password will be sent at the e-mail address</string>
     <string name="submit">Submit</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

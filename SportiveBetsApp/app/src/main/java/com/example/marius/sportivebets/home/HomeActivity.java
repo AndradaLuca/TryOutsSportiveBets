@@ -20,7 +20,7 @@ import com.example.marius.sportivebets.home.bottomNavFragments.BetTicketFragment
 import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyActivity;
 import com.example.marius.sportivebets.home.bottomNavFragments.HomeFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.MyBetsFragment;
-import com.example.marius.sportivebets.home.bottomNavFragments.WithdrawMoneyFragment;
+import com.example.marius.sportivebets.home.bottomNavFragments.withdrawMoney.WithdrawMoneyFragment;
 import com.example.marius.sportivebets.utils.Constants;
 
 public class HomeActivity extends AppCompatActivity {
@@ -42,10 +42,15 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         CNP = getIntent().getStringExtra("CNP");
         email = getIntent().getStringExtra("email");
         password = getIntent().getStringExtra("password");
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainBinding.bottomNavView.enableAnimation(true);
+        mainBinding.bottomNavView.enableItemShiftingMode(false);
+        mainBinding.bottomNavView.enableShiftingMode(false);
+        mainBinding.bottomNavView.setTextVisibility(false);
         recyclerView = mainBinding.recycleView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         drawerLayout = mainBinding.drawerLayout;
@@ -94,8 +99,16 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.withdraw_menu:
-                        selectedFragment = new WithdrawMoneyFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+                        initViewModel();
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putDouble("ammount", ammount);
+                        bundle1.putString("CNP", CNP);
+                        bundle1.putString("email", email);
+                        System.out.println(password);
+                        bundle1.putString("password", password);
+                        WithdrawMoneyFragment fragobj1 = new WithdrawMoneyFragment();
+                        fragobj1.setArguments(bundle1);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,fragobj1).commit();
                         break;
                     case R.id.MyBets_menu:
                         selectedFragment = new MyBetsFragment();
@@ -130,4 +143,8 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }
