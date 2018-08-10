@@ -5,8 +5,8 @@ import com.example.marius.sportivebets.home.MenuItem;
 import com.example.marius.sportivebets.home.MenuItemsModel;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItem;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItemsModel;
-import com.example.marius.sportivebets.home.sport_fragments.football.Game;
-import com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitle;
+//import com.example.marius.sportivebets.home.sport_fragments.football.Game;
+//import com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitle;
 
 
 
