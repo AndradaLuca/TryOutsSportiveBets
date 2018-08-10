@@ -1,13 +1,12 @@
 package com.example.marius.sportivebets.home.sport_fragments.football;
 
-import android.app.ExpandableListActivity;
-
+import com.example.marius.sportivebets.api.models.Game;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
-public class LeagueTitle extends ExpandableGroup {
-    public LeagueTitle(String title, List items) {
+public class ExpandableLeague extends ExpandableGroup {
+    public ExpandableLeague(String title, List<Game> items) {
         super(title, items);
     }
 }

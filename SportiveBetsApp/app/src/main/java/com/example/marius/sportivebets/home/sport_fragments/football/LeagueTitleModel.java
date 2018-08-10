@@ -4,9 +4,9 @@ public class LeagueTitleModel {
 
     public String title;
 
-    public LeagueTitleModel(LeagueTitle leagueTitle)
+    public LeagueTitleModel(ExpandableLeague expandableLeague)
     {
-        this.title=leagueTitle.getTitle();
+        this.title= expandableLeague.getTitle();
     }
 
     public LeagueTitleModel(String title)

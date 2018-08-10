@@ -1,14 +1,9 @@
 package com.example.marius.sportivebets.home.sport_fragments.football;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.marius.sportivebets.R;
+import com.example.marius.sportivebets.api.models.Game;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
 import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
