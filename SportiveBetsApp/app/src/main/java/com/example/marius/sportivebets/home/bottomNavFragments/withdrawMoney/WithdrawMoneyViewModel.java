@@ -10,11 +10,6 @@ import android.support.v7.app.AlertDialog;
 
 import com.braintreepayments.cardform.view.CardForm;
 import com.example.marius.sportivebets.database.Repository.Repository;
-import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyActivity;
-
-import es.dmoral.toasty.Toasty;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 public class WithdrawMoneyViewModel extends AndroidViewModel {
     private MutableLiveData<String> withdrawSuccess = new MutableLiveData<>();
@@ -45,7 +40,6 @@ public class WithdrawMoneyViewModel extends AndroidViewModel {
             alertBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    System.out.println(email+"  "+password);
                     if (repository.findUser(email, password).getMouney() - Double.parseDouble(ammount) >= 0) {
                         Double updateAmmount = repository.findUser(email, password).getMouney() - Double.parseDouble(ammount);
                         repository.updateBalance(CNP,updateAmmount.toString());

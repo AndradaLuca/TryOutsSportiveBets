@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.FragmentWithdrawMoneyBinding;
-import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyActivity;
-import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyViewModel;
 
 import es.dmoral.toasty.Toasty;
 

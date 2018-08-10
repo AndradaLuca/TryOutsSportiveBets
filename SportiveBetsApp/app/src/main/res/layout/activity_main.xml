@@ -78,7 +78,8 @@
                 android:background="@color/colorAccent"
                 app:itemIconTint="@drawable/bottom_navigation_colors"
                 app:itemTextColor="@drawable/bottom_navigation_colors"
-                app:menu="@menu/botom_navigation_menu" />
+                app:menu="@menu/botom_navigation_menu"
+                />
         </FrameLayout>
 
     </android.support.constraint.ConstraintLayout>

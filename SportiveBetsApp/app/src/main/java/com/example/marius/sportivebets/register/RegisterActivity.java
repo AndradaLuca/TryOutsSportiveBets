@@ -46,8 +46,6 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterActi
 
     @Override
     public void showLoginActivity() {
-        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-        startActivity(intent);
         finish();
 
     }

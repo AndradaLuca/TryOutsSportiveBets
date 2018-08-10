@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
                 intent.putExtra("password",user.getPassword());
                 intent.putExtra("ammount",user.getMouney());
                 startActivity(intent);
-
+                finish();
             }
         });
         loginViewModel.getLoginFailed().observe(this, new Observer<String>() {

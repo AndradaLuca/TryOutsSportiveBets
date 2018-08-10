@@ -16,8 +16,8 @@ import android.view.MenuItem;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.ActivityMainBinding;
-import com.example.marius.sportivebets.home.bottomNavFragments.BetTicketFragment;
-import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyActivity;
+import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketFragment;
+import com.example.marius.sportivebets.home.bottomNavFragments.DepositMoney.DepositMoneyFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.HomeFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.MyBetsFragment;
 import com.example.marius.sportivebets.home.bottomNavFragments.withdrawMoney.WithdrawMoneyFragment;
@@ -28,9 +28,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
     ActivityMainBinding mainBinding;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerViewBetTicke;
     DrawerLayout drawerLayout;
-    RecyclerView.Adapter adapter;
+    RecyclerView.Adapter adapter,adapterBetTicket;
     ActionBarDrawerToggle mToogle;
     private HomeViewModel homeViewModel;
     String CNP,email,password;
@@ -51,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         mainBinding.bottomNavView.enableItemShiftingMode(false);
         mainBinding.bottomNavView.enableShiftingMode(false);
         mainBinding.bottomNavView.setTextVisibility(false);
+
         recyclerView = mainBinding.recycleView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         drawerLayout = mainBinding.drawerLayout;
@@ -58,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
 
         adapter = new HomeRecyclerAdapter(Constants.menuItems);
         recyclerView.setAdapter(adapter);
+
+
 
         mToogle = new ActionBarDrawerToggle(this,mainBinding.drawerLayout,R.string.open,R.string.close);
 
@@ -88,15 +91,19 @@ public class HomeActivity extends AppCompatActivity {
                         bundle.putString("CNP", CNP);
                         HomeFragment fragobj = new HomeFragment();
                         fragobj.setArguments(bundle);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,fragobj).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_right).replace(R.id.fragment_holder,fragobj).commit();
                         break;
 
                     case R.id.deposit_menu:
-                        Intent intent = new Intent(HomeActivity.this, DepositMoneyActivity.class);
-                        intent.putExtra("CNP",CNP);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
-                        startActivity(intent);
+                        initViewModel();
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putDouble("ammount", ammount);
+                        bundle2.putString("CNP", CNP);
+                        bundle2.putString("email", email);
+                        bundle2.putString("password", password);
+                        DepositMoneyFragment depositMoneyFragment = new DepositMoneyFragment();
+                        depositMoneyFragment.setArguments(bundle2);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_right).replace(R.id.fragment_holder,depositMoneyFragment).commit();
                         break;
                     case R.id.withdraw_menu:
                         initViewModel();
@@ -104,19 +111,18 @@ public class HomeActivity extends AppCompatActivity {
                         bundle1.putDouble("ammount", ammount);
                         bundle1.putString("CNP", CNP);
                         bundle1.putString("email", email);
-                        System.out.println(password);
                         bundle1.putString("password", password);
                         WithdrawMoneyFragment fragobj1 = new WithdrawMoneyFragment();
                         fragobj1.setArguments(bundle1);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,fragobj1).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_right).replace(R.id.fragment_holder,fragobj1).commit();
                         break;
                     case R.id.MyBets_menu:
                         selectedFragment = new MyBetsFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_right).replace(R.id.fragment_holder,selectedFragment).commit();
                         break;
                     case R.id.betTicket_menu:
                         selectedFragment = new BetTicketFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_right).replace(R.id.fragment_holder,selectedFragment).commit();
                        break;
                 }
 
@@ -143,8 +149,4 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 }
