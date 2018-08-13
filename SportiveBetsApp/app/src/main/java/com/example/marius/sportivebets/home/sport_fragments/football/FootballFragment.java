@@ -1,6 +1,8 @@
 package com.example.marius.sportivebets.home.sport_fragments.football;
 
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +20,7 @@ import com.example.marius.sportivebets.api.models.LeaguesResponse;
 import com.example.marius.sportivebets.api.retrofit.GetDataService;
 import com.example.marius.sportivebets.api.retrofit.RetrofitClientInstance;
 import com.example.marius.sportivebets.databinding.FragmentFootball2Binding;
+import com.example.marius.sportivebets.login.LoginViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,8 @@ import retrofit2.Response;
 public class FootballFragment extends Fragment {
 
     private FragmentFootball2Binding fragmentFootball2Binding;
+
+    private FootballViewModel footballViewModel;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
@@ -41,29 +46,25 @@ public class FootballFragment extends Fragment {
 
         recyclerView = rootView.findViewById(R.id.recycleViewFootbal);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        //TODO move this call in view model
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-        service.getAllLeagues().enqueue(new Callback<LeaguesResponse>() {
-            @Override
-            public void onResponse(Call<LeaguesResponse> call, Response<LeaguesResponse> response) {
-                if(response.isSuccessful()) {
-                    initAdapter(response.body().getLeagues());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LeaguesResponse> call, Throwable t) {
-
-            }
-        });
+        initViewModel();
+        footballViewModel.getAllLeagues();
 
         return rootView;
     }
 
+    private void initViewModel() {
+        footballViewModel = ViewModelProviders.of(this).get(FootballViewModel.class);
+        footballViewModel.getLeaguesResponseMutableLiveData().observe(this, new Observer<LeaguesResponse>() {
+            @Override
+            public void onChanged(@Nullable LeaguesResponse leaguesResponse) {
+                initAdapter(leaguesResponse.getLeagues());
+            }
+        });
+    }
+
     private void initAdapter(List<League> leagues) {
         List<ExpandableLeague> el = new ArrayList<>();
-        for(League league : leagues) {
+        for (League league : leagues) {
             ExpandableLeague expandableLeague = new ExpandableLeague(league.getLeagueTitle(), league.getGames());
             el.add(expandableLeague);
         }

@@ -4,7 +4,7 @@
 
         <variable
             name="gameModel"
-            type="com.example.marius.sportivebets.home.sport_fragments.football.GameModel">
+            type="com.example.marius.sportivebets.home.sport_fragments.football.models.GameModel">
 
         </variable>
     </data>

@@ -1,4 +1,4 @@
-package com.example.marius.sportivebets.home.sport_fragments.football;
+package com.example.marius.sportivebets.home.sport_fragments.football.models;
 
 import com.example.marius.sportivebets.api.models.Game;
 

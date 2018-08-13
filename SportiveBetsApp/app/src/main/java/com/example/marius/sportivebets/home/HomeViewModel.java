@@ -13,7 +13,8 @@ public class HomeViewModel extends AndroidViewModel {
         super(application);
         repository = new Repository(application);
     }
-    public Double getBalance(String email,String password){
-        return repository.findUser(email,password).getMouney();
+
+    public Double getBalance(String email, String password) {
+        return repository.findUser(email, password).getMouney();
     }
 }

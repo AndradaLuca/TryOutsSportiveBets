@@ -76,8 +76,13 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
         }
 
+<<<<<<< Updated upstream
         public void bind(MenuItemsModel menuItemsModel) {
+=======
+        public void bind(MenuItemsModel menuItemsModel)
+        {
             
+>>>>>>> Stashed changes
             this.rawLayoutBinding.setMenuView(menuItemsModel);
             this.rawLayoutBinding.imageView.setImageResource(menuItemsModel.icon);
         }

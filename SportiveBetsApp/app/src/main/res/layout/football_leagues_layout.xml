@@ -6,7 +6,7 @@
     <data>
         <variable
             name="leagueTitleModel"
-            type="com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitleModel">
+            type="com.example.marius.sportivebets.home.sport_fragments.football.models.LeagueTitleModel">
 
         </variable>
     </data>

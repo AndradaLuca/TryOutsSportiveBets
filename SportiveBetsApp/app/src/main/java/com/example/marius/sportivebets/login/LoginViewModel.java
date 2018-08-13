@@ -28,24 +28,23 @@ public class LoginViewModel extends AndroidViewModel {
         return loginFailed;
     }
 
-    public void onLoginClick(String email, String password, boolean isKeepLogged){
+    public void onLoginClick(String email, String password, boolean isKeepLogged) {
         if (!Validation.isLoginEmailValid(email)) {
             loginFailed.postValue("Empty e-mail !!!");
-        }else if (!Validation.isLoginPasswordValid(password)){
+        } else if (!Validation.isLoginPasswordValid(password)) {
             loginFailed.postValue("Empty password !!!");
-        }else {
-            if (repository.findUserForSubmit(email) != null){
+        } else {
+            if (repository.findUserForSubmit(email) != null) {
 
 
-            if(repository.findUser(email, password)!= null){
-                if (repository.findUser(email, password).getMail().equals(email) && repository.findUser(email, password).getPassword().equals(password)){
-                    loginSuccess.postValue(repository.findUser(email, password));
+                if (repository.findUser(email, password) != null) {
+                    if (repository.findUser(email, password).getMail().equals(email) && repository.findUser(email, password).getPassword().equals(password)) {
+                        loginSuccess.postValue(repository.findUser(email, password));
+                    }
+                } else {
+                    loginFailed.postValue("Wrong password !!!");
                 }
-            }else{
-                loginFailed.postValue("Wrong password !!!");
-            }
-            }
-            else{
+            } else {
                 loginFailed.postValue("Not registered yet !!!");
             }
         }

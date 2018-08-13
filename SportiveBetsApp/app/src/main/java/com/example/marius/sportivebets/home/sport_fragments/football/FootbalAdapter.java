@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import com.example.marius.sportivebets.api.models.Game;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
 import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
+import com.example.marius.sportivebets.home.sport_fragments.football.models.GameModel;
+import com.example.marius.sportivebets.home.sport_fragments.football.models.LeagueTitleModel;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;

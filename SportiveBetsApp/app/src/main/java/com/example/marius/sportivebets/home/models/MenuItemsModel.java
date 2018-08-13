@@ -1,4 +1,5 @@
-package com.example.marius.sportivebets.home;
+package com.example.marius.sportivebets.home.models;
+
 
 public class MenuItemsModel {
 
