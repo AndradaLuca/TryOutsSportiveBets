@@ -22,4 +22,7 @@ public class BetTicketItemsModel {
     public String getBetName(){
         return betName;
     }
+    public double getCota(){
+        return cota;
+    }
 }

@@ -13,6 +13,8 @@ import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.api.models.Game;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
 import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
+import com.example.marius.sportivebets.home.HomeRecyclerAdapter;
+import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketAdapter;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItem;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItemsModel;
 import com.example.marius.sportivebets.home.sport_fragments.football.models.GameModel;
@@ -137,7 +139,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
                 String[] s = listItemGamesBinding.buttonWinFirstTeam.getText().toString().split("\n");
                 cota = Double.parseDouble(s[1]);
                 betName = listItemGamesBinding.listGames.getText().toString();
-                
+
             }
             if (listItemGamesBinding.buttonDraw.isPressed()) {
                 tip = listItemGamesBinding.buttonDraw.getText().toString();
@@ -151,11 +153,22 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
                 String[] s = listItemGamesBinding.buttonWinSecondTeam.getText().toString().split("\n");
                 cota = Double.parseDouble(s[1]);
                 betName = listItemGamesBinding.listGames.getText().toString();
+
+            }
+            BetTicketItemsModel betObject = new BetTicketItemsModel(new BetTicketItem(cota, tip, betName));
+            if(!betTicketItems.contains(betObject)){
+                betTicketItems.add(betObject);
+                System.out.println("nu este in lista!");
+            }
+            else{
+                System.out.println("este deja in lista");
             }
 
-            betTicketItems.add(new BetTicketItemsModel(new BetTicketItem(cota, tip, betName)));
+        }
 
-            //listItemGamesBinding.buttonWinFirstTeam
+        @Override
+        public void onCancelClick() {
+            betTicketItems.remove(getAdapterPosition());
         }
     }
 

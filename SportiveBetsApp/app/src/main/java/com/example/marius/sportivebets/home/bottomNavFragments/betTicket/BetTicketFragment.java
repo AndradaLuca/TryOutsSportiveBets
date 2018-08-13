@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ public class BetTicketFragment extends Fragment {
 
     FragmentBetTicketBinding fragmentBetTicketBinding;
 
+
     RecyclerView recyclerViewBetTicke;
     RecyclerView.Adapter adapterBetTicket;
 
@@ -29,6 +32,31 @@ public class BetTicketFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentBetTicketBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_bet_ticket,container,false);
         recyclerViewBetTicke = fragmentBetTicketBinding.recycleViewBetTicket;
+        fragmentBetTicketBinding.setLista(FootbalAdapter.GamesHolder.betTicketItems);
+        double cotaTotala = 1;
+
+        for (int i = 0 ; i< FootbalAdapter.GamesHolder.betTicketItems.size();++i){
+            cotaTotala = cotaTotala * FootbalAdapter.GamesHolder.betTicketItems.get(i).getCota();
+        }
+        String cotaTotalaStrimg = cotaTotala +"";
+        fragmentBetTicketBinding.setCotaTotala(cotaTotalaStrimg);
+        double finalCotaTotala = cotaTotala;
+        fragmentBetTicketBinding.editText2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            fragmentBetTicketBinding.textView17.setText(finalCotaTotala *Double.parseDouble(fragmentBetTicketBinding.editText2.getText().toString())+"");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         recyclerViewBetTicke.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adapterBetTicket = new BetTicketAdapter(FootbalAdapter.GamesHolder.betTicketItems);

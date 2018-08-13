@@ -53,7 +53,7 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
         return items.size();
     }
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder  {
 
 
         private RowInBetTicketBinding rowInBetTicketBinding;
@@ -63,9 +63,7 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
         public RecyclerViewHolder(RowInBetTicketBinding rowInBetTicketBinding) {
             super(rowInBetTicketBinding.getRoot());
             this.rowInBetTicketBinding=rowInBetTicketBinding;
-            itemView.setClickable(true);
-            itemView.setOnClickListener(this);
-
+            itemView.setClickable(false);
         }
 
         public void bind(BetTicketItemsModel betTicketItemsModel)
@@ -73,29 +71,8 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
             this.rowInBetTicketBinding.setMenuView(betTicketItemsModel);
         }
 
-
-        @Override
-        public void onClick(View view) {
-
-            AppCompatActivity activity = (AppCompatActivity) view.getContext();
-            Fragment myFragment =new BetTicketFragment();
-            switch (getAdapterPosition())
-            {
-                case 0 :
-                    myFragment = new BetTicketFragment();
-                    break;
-                case 1:
-                    myFragment= new TenisFragment();
-                    break;
-                case 2:
-                    myFragment=new PingPongFragment();
-
-
-            }
-
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,myFragment).addToBackStack(null).commit();
-
-
+        public RowInBetTicketBinding getRowInBetTicketBinding(){
+            return rowInBetTicketBinding;
         }
 
 
