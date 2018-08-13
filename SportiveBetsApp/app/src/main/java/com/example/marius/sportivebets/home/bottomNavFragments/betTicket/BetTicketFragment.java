@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.FragmentBetTicketBinding;
+import com.example.marius.sportivebets.home.sport_fragments.football.FootbalAdapter;
 import com.example.marius.sportivebets.utils.Constants;
 
 public class BetTicketFragment extends Fragment {
@@ -22,13 +23,15 @@ public class BetTicketFragment extends Fragment {
     RecyclerView recyclerViewBetTicke;
     RecyclerView.Adapter adapterBetTicket;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentBetTicketBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_bet_ticket,container,false);
         recyclerViewBetTicke = fragmentBetTicketBinding.recycleViewBetTicket;
         recyclerViewBetTicke.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterBetTicket = new BetTicketAdapter(Constants.betTicketItems);
+
+        adapterBetTicket = new BetTicketAdapter(FootbalAdapter.GamesHolder.betTicketItems);
         recyclerViewBetTicke.setAdapter(adapterBetTicket);
 
         return fragmentBetTicketBinding.getRoot();

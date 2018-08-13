@@ -7,6 +7,9 @@
             type="com.example.marius.sportivebets.home.sport_fragments.football.models.GameModel">
 
         </variable>
+        <variable
+            name="iFootbalBet"
+            type="com.example.marius.sportivebets.home.sport_fragments.football.IFootbalBet"/>
     </data>
 
 
@@ -33,7 +36,7 @@
         android:id="@+id/buttonWinFirstTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:onClick="@{() -> iFootbalBet.onBetButtonClick()}"
         android:layout_marginStart="16dp"
         android:textSize="6sp"
         android:text="@{gameModel.firstButton}"
@@ -44,6 +47,7 @@
         android:id="@+id/buttonDraw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> iFootbalBet.onBetButtonClick()}"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
@@ -56,6 +60,7 @@
     <Button
         android:id="@+id/buttonWinSecondTeam"
         android:layout_width="0dp"
+        android:onClick="@{() -> iFootbalBet.onBetButtonClick()}"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:textSize="6sp"

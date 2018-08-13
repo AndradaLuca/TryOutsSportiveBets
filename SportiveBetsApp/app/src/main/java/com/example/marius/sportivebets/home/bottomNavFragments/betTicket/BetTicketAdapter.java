@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.databinding.RawLayoutBinding;
 import com.example.marius.sportivebets.databinding.RowInBetTicketBinding;
-import com.example.marius.sportivebets.home.MenuItemsModel;
+import com.example.marius.sportivebets.home.models.MenuItemsModel;
 import com.example.marius.sportivebets.home.sport_fragments.PingPongFragment;
 import com.example.marius.sportivebets.home.sport_fragments.TenisFragment;
 import com.example.marius.sportivebets.home.sport_fragments.football.FootballFragment;

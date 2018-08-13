@@ -5,22 +5,21 @@ import android.widget.ImageButton;
 
 public class BetTicketItemsModel {
 
-    private String odd;
-    private String bet;
-    private String event;
-    private String category;
-    ImageButton closeImageButton;
-    CheckBox checkBox;
+    private double cota;
+    private String tip;
+    private String betName;
 
-    public BetTicketItemsModel(BetTicketItem betTicketItem){
-        this.bet = betTicketItem.getBet();
-        this.odd = betTicketItem.getOdd();
-        this.event = betTicketItem.getEvent();
-        this.category = betTicketItem.getCategory();
-        this.closeImageButton = betTicketItem.getCloseImageButton();
-        this.checkBox = betTicketItem.getCheckBox();
+
+    public BetTicketItemsModel(BetTicketItem betTicketItem) {
+        this.cota = betTicketItem.getCota();
+        this.tip = betTicketItem.getTip();
+        betName = betTicketItem.getBetName();
     }
+
     public String getTitle(){
-        return bet+" @ "+odd;
+        return tip;
+    }
+    public String getBetName(){
+        return betName;
     }
 }

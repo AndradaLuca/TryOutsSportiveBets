@@ -9,7 +9,7 @@ import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTick
 //import com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitle;
 
 
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -32,11 +32,8 @@ public class Constants {
 
 
 
-    private static final BetTicketItem asdItem = new BetTicketItem(2.33+"","Steaua","asd","asdasd");
-    private static final BetTicketItem asddItem = new BetTicketItem(2.1+"","CFR","sdfsdf","sdgqw");
 
-    public static final List<BetTicketItemsModel> betTicketItems = Arrays.asList(new BetTicketItemsModel(asdItem),new BetTicketItemsModel(asddItem));
-
+    public static  List<BetTicketItemsModel> betTicketItems = new ArrayList<>();
 
 
 
