@@ -1,11 +1,6 @@
 package com.example.marius.sportivebets.home.sport_fragments.football;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.PaintDrawable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -13,13 +8,10 @@ import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.api.models.Game;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
 import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
-import com.example.marius.sportivebets.home.HomeRecyclerAdapter;
-import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketAdapter;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItem;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItemsModel;
 import com.example.marius.sportivebets.home.sport_fragments.football.models.GameModel;
 import com.example.marius.sportivebets.home.sport_fragments.football.models.LeagueTitleModel;
-import com.example.marius.sportivebets.utils.Constants;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
@@ -28,10 +20,8 @@ import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.graphics.Color.CYAN;
-import static com.example.marius.sportivebets.R.*;
-import static com.example.marius.sportivebets.R.color.*;
-import static com.example.marius.sportivebets.utils.Constants.betTicketItems;
+import static com.example.marius.sportivebets.R.color;
+import static com.example.marius.sportivebets.R.id;
 
 public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter.FootballViewHolder, FootbalAdapter.GamesHolder> {
 
@@ -107,7 +97,6 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
 
 
         public   static List<BetTicketItemsModel> betTicketItems = new ArrayList<>() ;
-
         private  ListItemGamesBinding listItemGamesBinding;
 
 
@@ -115,7 +104,6 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
         public GamesHolder(ListItemGamesBinding listItemGamesBinding) {
             super(listItemGamesBinding.getRoot());
             this.listItemGamesBinding = listItemGamesBinding;
-
 
         }
 
@@ -130,45 +118,82 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
 
         @SuppressLint("ResourceAsColor")
         @Override
-        public void onBetButtonClick() {
+        public void onWinFirstTeamClick(boolean isChecked) {
+          betTicketToggler(R.id.buttonWinFirstTeam, isChecked);
+          if (isChecked){
+              listItemGamesBinding.buttonWinFirstTeam.setBackgroundResource(color.colorPrimary);
+          }else {
+              listItemGamesBinding.buttonWinFirstTeam.setBackgroundResource(android.R.drawable.btn_default);
+          }
+        }
+
+        @Override
+        public void onDrawClick(boolean isChecked) {
+            betTicketToggler(R.id.buttonDraw, isChecked);
+            if (isChecked){
+                listItemGamesBinding.buttonDraw.setBackgroundResource(color.colorPrimary);
+            }else {
+                listItemGamesBinding.buttonDraw.setBackgroundResource(android.R.drawable.btn_default);
+            }
+        }
+
+        @Override
+        public void onWinSecoundTeamClick(boolean isChecked) {
+            betTicketToggler(id.buttonWinSecondTeam, isChecked);
+            if (isChecked){
+                listItemGamesBinding.buttonWinSecondTeam.setBackgroundResource(color.colorPrimary);
+            }else {
+                listItemGamesBinding.buttonWinSecondTeam.setBackgroundResource(android.R.drawable.btn_default);
+            }
+        }
+
+        private void betTicketToggler(int buttonId, boolean isButtonClicked) {
+
             String tip=null;
-            double cota=0.0;
-            String betName=null;
-            if (listItemGamesBinding.buttonWinFirstTeam.isPressed()) {
-                tip = listItemGamesBinding.buttonWinFirstTeam.getText().toString();
-                String[] s = listItemGamesBinding.buttonWinFirstTeam.getText().toString().split("\n");
-                cota = Double.parseDouble(s[1]);
-                betName = listItemGamesBinding.listGames.getText().toString();
+            double cota;
+            String betName;
+            String[] s = new String[0];
 
+            switch (buttonId) {
+                case R.id.buttonWinFirstTeam:
+                    tip = listItemGamesBinding.buttonWinFirstTeam.getText().toString();
+                    s = listItemGamesBinding.buttonWinFirstTeam.getText().toString().split("\n");
+                    break;
+                case R.id.buttonDraw:
+                    tip = listItemGamesBinding.buttonDraw.getText().toString();
+                    s = listItemGamesBinding.buttonDraw.getText().toString().split("\n");
+                    break;
+                case id.buttonWinSecondTeam:
+                    tip = listItemGamesBinding.buttonWinSecondTeam.getText().toString();
+                    s = listItemGamesBinding.buttonWinSecondTeam.getText().toString().split("\n");
+                    break;
             }
-            if (listItemGamesBinding.buttonDraw.isPressed()) {
-                tip = listItemGamesBinding.buttonDraw.getText().toString();
-                String[] s = listItemGamesBinding.buttonDraw.getText().toString().split("\n");
-                cota = Double.parseDouble(s[1]);
-                betName = listItemGamesBinding.listGames.getText().toString();
 
-            }
-            if (listItemGamesBinding.buttonWinSecondTeam.isPressed()) {
-                tip = listItemGamesBinding.buttonWinSecondTeam.getText().toString();
-                String[] s = listItemGamesBinding.buttonWinSecondTeam.getText().toString().split("\n");
-                cota = Double.parseDouble(s[1]);
-                betName = listItemGamesBinding.listGames.getText().toString();
+            cota = Double.parseDouble(s[1]);
+            betName = listItemGamesBinding.listGames.getText().toString();
 
-            }
             BetTicketItemsModel betObject = new BetTicketItemsModel(new BetTicketItem(cota, tip, betName));
-            if(!betTicketItems.contains(betObject)){
-                betTicketItems.add(betObject);
-                System.out.println("nu este in lista!");
-            }
-            else{
-                System.out.println("este deja in lista");
+
+
+
+            if(isButtonClicked) {
+                if (!betTicketItems.contains(betObject)){
+                    betTicketItems.add(betObject);
+                }
+                //set background blue
+                //add item in list
+            } else {
+                betTicketItems.remove(betObject);
+                //set background default
+                //remove from list
             }
 
         }
 
+
         @Override
         public void onCancelClick() {
-            betTicketItems.remove(getAdapterPosition());
+
         }
     }
 

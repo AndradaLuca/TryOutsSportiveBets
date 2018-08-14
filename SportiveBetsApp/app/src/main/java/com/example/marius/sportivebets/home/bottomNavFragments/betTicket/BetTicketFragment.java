@@ -38,7 +38,8 @@ public class BetTicketFragment extends Fragment {
         for (int i = 0 ; i< FootbalAdapter.GamesHolder.betTicketItems.size();++i){
             cotaTotala = cotaTotala * FootbalAdapter.GamesHolder.betTicketItems.get(i).getCota();
         }
-        String cotaTotalaStrimg = cotaTotala +"";
+
+        String cotaTotalaStrimg = String.format("%.2f",cotaTotala);
         fragmentBetTicketBinding.setCotaTotala(cotaTotalaStrimg);
         double finalCotaTotala = cotaTotala;
         fragmentBetTicketBinding.editText2.addTextChangedListener(new TextWatcher() {
@@ -49,7 +50,7 @@ public class BetTicketFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-            fragmentBetTicketBinding.textView17.setText(finalCotaTotala *Double.parseDouble(fragmentBetTicketBinding.editText2.getText().toString())+"");
+            fragmentBetTicketBinding.textView17.setText(String.format("%.2f",finalCotaTotala *Double.parseDouble(fragmentBetTicketBinding.editText2.getText().toString())));
             }
 
             @Override

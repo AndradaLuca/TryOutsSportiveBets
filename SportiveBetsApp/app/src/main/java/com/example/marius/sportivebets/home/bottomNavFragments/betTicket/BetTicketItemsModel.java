@@ -25,4 +25,10 @@ public class BetTicketItemsModel {
     public double getCota(){
         return cota;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        BetTicketItemsModel btm = (BetTicketItemsModel) obj;
+        return btm.tip.equals(tip) && btm.cota == cota && btm.betName.equals(betName);
+    }
 }

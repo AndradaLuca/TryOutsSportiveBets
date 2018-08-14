@@ -9,6 +9,7 @@ import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTick
 //import com.example.marius.sportivebets.home.sport_fragments.football.LeagueTitle;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
