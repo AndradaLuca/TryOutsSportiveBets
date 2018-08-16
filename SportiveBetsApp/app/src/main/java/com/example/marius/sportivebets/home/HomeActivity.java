@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
 
    
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+
  
     
 

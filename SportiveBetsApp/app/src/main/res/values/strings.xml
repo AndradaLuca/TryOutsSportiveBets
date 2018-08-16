@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">SportiveBets</string>
     <string name="login_title">Login</string>
-    <string name="username">username</string>
+    <string name="username">Username</string>
     <string name="e_mail">E-mail</string>
     <string name="cnp">CNP</string>
-    <string name="password">password</string>
-    <string name="address">address</string>
+    <string name="password">Password</string>
+    <string name="address">Address</string>
     <string name="register">Register</string>
     <string name="already_a_member_login_here">Already a member?</string>
     <string name="login_here">Login here</string>

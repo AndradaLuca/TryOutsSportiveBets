@@ -123,7 +123,6 @@
                 android:gravity="end|center_vertical"
                 android:text="@string/newHere"
                 android:textColor="@color/black"
-                android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton" />
 
@@ -137,7 +136,6 @@
                 android:onClick="@{() -> iLoginActivity.showRegisterActivity()}"
                 android:text="@string/egisterNow"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButton"
                 android:focusable="true" />
