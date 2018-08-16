@@ -74,10 +74,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     // bootom nav vie
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
- implementation files('src/main/java/com/example/marius/sportivebets/libs/mail.jar')
+    implementation files('src/main/java/com/example/marius/sportivebets/libs/mail.jar')
     implementation files('src/main/java/com/example/marius/sportivebets/libs/additionnal.jar')
     implementation files('src/main/java/com/example/marius/sportivebets/libs/activation.jar')
     // bootom nav vie
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation "com.android.support:design:27.+"
+
+
+
+
 }

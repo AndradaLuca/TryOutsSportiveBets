@@ -96,7 +96,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
     public static class GamesHolder extends ChildViewHolder implements IFootbalBet {
 
 
-        public   static List<BetTicketItemsModel> betTicketItems = new ArrayList<>() ;
+        public static List<BetTicketItemsModel> betTicketItems = new ArrayList<>() ;
         private  ListItemGamesBinding listItemGamesBinding;
 
 
@@ -114,6 +114,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
         public void bind(GameModel gameModel) {
             listItemGamesBinding.setGameModel(gameModel);
             listItemGamesBinding.setIFootbalBet(this);
+
         }
 
         @SuppressLint("ResourceAsColor")

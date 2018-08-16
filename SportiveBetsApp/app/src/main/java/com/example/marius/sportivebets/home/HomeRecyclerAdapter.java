@@ -1,15 +1,20 @@
 package com.example.marius.sportivebets.home;
 
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.marius.sportivebets.R;
+import com.example.marius.sportivebets.databinding.ActivityMainBinding;
 import com.example.marius.sportivebets.databinding.RawLayoutBinding;
 
 import com.example.marius.sportivebets.home.models.MenuItemsModel;
@@ -28,8 +33,10 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     private LayoutInflater layoutInflater;
 
 
+
     public HomeRecyclerAdapter(List<MenuItemsModel> items) {
         this.items = items;
+
     }
 
     @NonNull
@@ -65,6 +72,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
 
         private RawLayoutBinding rawLayoutBinding;
+        private ActivityMainBinding activityMainBinding;
 
 
 
@@ -86,6 +94,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
             return this.rawLayoutBinding;
         }
 
+        @SuppressLint("RestrictedApi")
         @Override
         public void onClick(View view) {
 

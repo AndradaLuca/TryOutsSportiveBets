@@ -14,6 +14,7 @@ import com.example.marius.sportivebets.databinding.RowInBetTicketBinding;
 import com.example.marius.sportivebets.home.models.MenuItemsModel;
 import com.example.marius.sportivebets.home.sport_fragments.PingPongFragment;
 import com.example.marius.sportivebets.home.sport_fragments.TenisFragment;
+import com.example.marius.sportivebets.home.sport_fragments.football.FootbalAdapter;
 import com.example.marius.sportivebets.home.sport_fragments.football.FootballFragment;
 
 import java.util.List;
@@ -46,6 +47,7 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
 
         BetTicketItemsModel betTicketItemsModel=items.get(position);
         holder.bind(betTicketItemsModel);
+
     }
 
     @Override
@@ -53,7 +55,7 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
         return items.size();
     }
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder  {
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
 
         private RowInBetTicketBinding rowInBetTicketBinding;
@@ -63,12 +65,22 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
         public RecyclerViewHolder(RowInBetTicketBinding rowInBetTicketBinding) {
             super(rowInBetTicketBinding.getRoot());
             this.rowInBetTicketBinding=rowInBetTicketBinding;
-            itemView.setClickable(false);
+            rowInBetTicketBinding.imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FootbalAdapter.GamesHolder.betTicketItems.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+                    notifyItemRangeChanged(getAdapterPosition(), FootbalAdapter.GamesHolder.betTicketItems.size());
+                }
+            });
+           // itemView.setClickable(false);
         }
 
         public void bind(BetTicketItemsModel betTicketItemsModel)
         {
             this.rowInBetTicketBinding.setMenuView(betTicketItemsModel);
+           // this.rowInBetTicketBinding.setIBetTicket(this);
+
         }
 
         public RowInBetTicketBinding getRowInBetTicketBinding(){
@@ -76,5 +88,11 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
         }
 
 
+//        @Override
+//        public void onXClick() {
+//            System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+//            System.out.println(FootbalAdapter.GamesHolder.betTicketItems.get(getAdapterPosition()).toString());
+//
+//        }
     }
 }

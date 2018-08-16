@@ -76,21 +76,20 @@ public class HomeActivity extends AppCompatActivity {
         mToogle = new ActionBarDrawerToggle(this,mainBinding.drawerLayout,R.string.open,R.string.close);
 
         mainBinding.drawerLayout.addDrawerListener(mToogle);
-        mToogle.syncState();
 
-   
+        mToogle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+<<<<<<< Updated upstream
         
- 
-    
+=======
+
 
 
         Bundle bundle = new Bundle();
         bundle.putDouble("ammount", getIntent().getDoubleExtra("ammount",0.0));
         bundle.putString("CNP", getIntent().getStringExtra("CNP"));
+>>>>>>> Stashed changes
         HomeFragment homeFragmentObject = new HomeFragment();
-  homeFragmentObject.setArguments(bundle);
-    
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,homeFragmentObject).commit();
 
 
