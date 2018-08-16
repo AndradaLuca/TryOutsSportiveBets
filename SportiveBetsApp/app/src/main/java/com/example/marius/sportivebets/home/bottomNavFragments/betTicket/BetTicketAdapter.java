@@ -4,11 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.marius.sportivebets.R;
+import com.example.marius.sportivebets.databinding.FragmentBetTicketBinding;
 import com.example.marius.sportivebets.databinding.RawLayoutBinding;
 import com.example.marius.sportivebets.databinding.RowInBetTicketBinding;
 import com.example.marius.sportivebets.home.models.MenuItemsModel;
@@ -62,15 +65,20 @@ public class BetTicketAdapter extends RecyclerView.Adapter<BetTicketAdapter.Recy
 
 
 
+
         public RecyclerViewHolder(RowInBetTicketBinding rowInBetTicketBinding) {
             super(rowInBetTicketBinding.getRoot());
             this.rowInBetTicketBinding=rowInBetTicketBinding;
+
+
             rowInBetTicketBinding.imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     FootbalAdapter.GamesHolder.betTicketItems.remove(getAdapterPosition());
                     notifyItemRemoved(getAdapterPosition());
                     notifyItemRangeChanged(getAdapterPosition(), FootbalAdapter.GamesHolder.betTicketItems.size());
+
+
                 }
             });
            // itemView.setClickable(false);

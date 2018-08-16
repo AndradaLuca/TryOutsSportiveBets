@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.example.marius.sportivebets.R;
 import com.example.marius.sportivebets.api.models.Game;
 import com.example.marius.sportivebets.databinding.FootballLeaguesLayoutBinding;
+import com.example.marius.sportivebets.databinding.FragmentBetTicketBinding;
 import com.example.marius.sportivebets.databinding.ListItemGamesBinding;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItem;
 import com.example.marius.sportivebets.home.bottomNavFragments.betTicket.BetTicketItemsModel;
@@ -98,6 +99,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
 
         public static List<BetTicketItemsModel> betTicketItems = new ArrayList<>() ;
         private  ListItemGamesBinding listItemGamesBinding;
+        private  FragmentBetTicketBinding fragmentBetTicketBinding;
 
 
 
@@ -114,6 +116,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
         public void bind(GameModel gameModel) {
             listItemGamesBinding.setGameModel(gameModel);
             listItemGamesBinding.setIFootbalBet(this);
+
 
         }
 
@@ -184,6 +187,7 @@ public class FootbalAdapter extends ExpandableRecyclerViewAdapter<FootbalAdapter
                 //set background blue
                 //add item in list
             } else {
+
                 betTicketItems.remove(betObject);
                 //set background default
                 //remove from list

@@ -65,4 +65,6 @@ public class BetTicketFragment extends Fragment {
 
         return fragmentBetTicketBinding.getRoot();
     }
+
+
 }
