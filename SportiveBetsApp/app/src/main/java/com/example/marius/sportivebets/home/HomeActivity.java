@@ -68,13 +68,8 @@ public class HomeActivity extends AppCompatActivity {
         mToogle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-        Bundle bundle = new Bundle();
-        bundle.putDouble("ammount", getIntent().getDoubleExtra("ammount",0.0));
-        bundle.putString("CNP", getIntent().getStringExtra("CNP"));
+        
         HomeFragment homeFragmentObject = new HomeFragment();
-        homeFragmentObject.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,homeFragmentObject).commit();
 
 

@@ -19,15 +19,9 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentHomeBinding homeBinding;
-        homeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
-        View view = homeBinding.getRoot();
-        if (getArguments() != null) {
-            Double ammount = getArguments().getDouble("ammount");
-            String CNP = getArguments().getString("CNP");
-            homeBinding.textV.setText("CNP: "+CNP+" \n"+"Ammount: "+ammount);
-        }
-
-        return view;
+//        FragmentHomeBinding homeBinding;
+//        homeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
+//        View view = homeBinding.getRoot();
+        return inflater.inflate(R.layout.fragment_home,container,false);
     }
 }
